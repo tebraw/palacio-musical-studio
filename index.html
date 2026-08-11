@@ -3,32 +3,33 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#090806">
-<title>Palacio Musical Studio — Stay. Create. Record.</title>
-<meta name="description" content="Palacio Musical Studio — a 12,500 sq ft beachfront villa in Tambor, Costa Rica with a professional recording studio. Rent the entire estate for your band, songwriting team or production crew.">
-<meta property="og:title" content="Palacio Musical Studio — Stay. Create. Record.">
-<meta property="og:description" content="A private recording retreat on the Costa Rican Pacific coast. 12,500 sq ft, 7 en-suites, whale watching deck, Tiki Bar and direct beach access — with a fully equipped recording studio.">
+<meta name="theme-color" content="#050403">
+<title>Palacio Musical Studio &mdash; Stay. Create. Record.</title>
+<meta name="description" content="Palacio Musical Studio &mdash; a 12,500 sq ft beachfront villa in Tambor, Costa Rica with a professional recording studio. Rent the entire estate for your band, songwriting team or production crew.">
+<meta property="og:title" content="Palacio Musical Studio &mdash; Stay. Create. Record.">
+<meta property="og:description" content="A private recording retreat on the Costa Rican Pacific coast. 12,500 sq ft, 7 en-suites, whale watching deck, Tiki Bar and direct beach access &mdash; with a fully equipped recording studio.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Palacio Musical Studio">
 <meta property="og:image" content="images/hero.jpeg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Palacio Musical Studio — Stay. Create. Record.">
-<meta name="twitter:description" content="12,500 sq ft beachfront villa with professional recording studio in Tambor, Costa Rica. Rent the entire estate for your creative team.">
+<meta name="twitter:title" content="Palacio Musical Studio &mdash; Stay. Create. Record.">
+<meta name="twitter:description" content="12,500 sq ft beachfront villa with professional recording studio in Tambor, Costa Rica.">
 <link rel="preload" as="image" href="images/hero.jpeg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-/* ── Tokens ─────────────────────────────────────────────────────────────── */
 :root{
-  --bg:#090806;--surface:#100e0b;--surface2:#17120e;
-  --ink:#f0e5d4;--muted:#8a7c6c;--muted2:#4a3e34;
-  --gold:#c8904a;--gold2:#e8c47a;--gold-dim:rgba(200,144,74,.15);
-  --line:#1e1610;--line2:#2a1e16;
-  --serif:'Cormorant Garamond',Georgia,serif;
-  --sans:'Jost',-apple-system,BlinkMacSystemFont,sans-serif;
+  --bg:#050403;--bg2:#0c0908;--surface:#110d08;--surface2:#181209;
+  --ink:#ede3d4;--ink2:#b0a080;
+  --muted:#6a5c4c;--muted2:#30241a;
+  --gold:#c09038;--gold2:#dba84e;--gold3:#f0ca78;
+  --line:#1e1610;--line2:#2c2018;
+  --serif:"Cormorant Garamond",Georgia,serif;
+  --sans:"Space Grotesk",-apple-system,sans-serif;
   --ease:cubic-bezier(.25,.1,.25,1);
   --ease-out:cubic-bezier(0,0,.2,1);
+  --ease-spring:cubic-bezier(.34,1.56,.64,1);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -36,354 +37,483 @@ body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:3
 img{display:block;width:100%}
 a{color:inherit;text-decoration:none}
 
-/* ── Grain ────────────────────────────────────────────────────────────────── */
-body::before{content:'';position:fixed;inset:-100px;width:calc(100% + 200px);height:calc(100% + 200px);
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  opacity:.024;pointer-events:none;z-index:9000;animation:grain 8s steps(10) infinite}
-@keyframes grain{0%,100%{transform:translate(0,0)}10%{transform:translate(-5%,-10%)}20%{transform:translate(-15%,5%)}30%{transform:translate(7%,-25%)}40%{transform:translate(-5%,25%)}50%{transform:translate(-15%,10%)}60%{transform:translate(15%,0)}70%{transform:translate(0,15%)}80%{transform:translate(3%,35%)}90%{transform:translate(-10%,10%)}}
+/* Grain overlay */
+body::after{content:"";position:fixed;inset:-150px;width:calc(100% + 300px);height:calc(100% + 300px);
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  opacity:.022;pointer-events:none;z-index:9000;animation:grain 9s steps(12) infinite}
+@keyframes grain{
+  0%,100%{transform:translate(0,0)}10%{transform:translate(-4%,-8%)}
+  20%{transform:translate(-14%,4%)}30%{transform:translate(6%,-22%)}
+  40%{transform:translate(-4%,22%)}50%{transform:translate(-12%,8%)}
+  60%{transform:translate(12%,-2%)}70%{transform:translate(0,14%)}
+  80%{transform:translate(4%,32%)}90%{transform:translate(-9%,8%)}
+}
 
-/* ── Progress bar ───────────────────────────────────────────────────────── */
-.progress-bar{position:fixed;top:0;left:0;height:1px;width:0;background:linear-gradient(90deg,var(--gold),var(--gold2));z-index:200;transition:width .1s linear}
+/* Preloader */
+.pre{position:fixed;inset:0;background:var(--bg);z-index:9999;display:flex;align-items:center;justify-content:center;transition:opacity .9s .1s var(--ease)}
+.pre.done{opacity:0;pointer-events:none}
+.pre-inner{text-align:center}
+.pre-line{width:100px;height:1px;background:var(--gold);opacity:.4;margin:22px auto;transform:scaleX(0);animation:pLine .7s var(--ease-out) forwards}
+.pre-line-b{animation-delay:.35s}
+.pre-row{overflow:hidden;font-family:var(--serif);font-weight:300;font-size:clamp(30px,6vw,74px);letter-spacing:.24em;color:var(--ink);line-height:1.15}
+.pre-row-inner{display:block;transform:translateY(110%);animation:pWord .9s var(--ease-out) forwards}
+.pre-row:nth-child(3) .pre-row-inner{animation-delay:.18s}
+.pre-sub{font-family:var(--sans);font-size:8px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);opacity:0;animation:pFade .5s .75s forwards;margin-top:6px}
+@keyframes pLine{to{transform:scaleX(1)}}
+@keyframes pWord{to{transform:translateY(0)}}
+@keyframes pFade{to{opacity:1}}
 
-/* ── Header ────────────────────────────────────────────────────────────── */
-header{position:fixed;z-index:100;inset:0 0 auto;display:flex;align-items:center;justify-content:space-between;padding:28px 7vw;transition:padding .5s var(--ease),background .5s var(--ease),border-color .5s}
-header.scrolled{padding:16px 7vw;background:rgba(9,8,6,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--line2)}
+/* Custom cursor */
+@media(pointer:fine){
+  *{cursor:none!important}
+  .cur-dot{position:fixed;width:5px;height:5px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9998;margin-left:-2.5px;margin-top:-2.5px;transition:width .2s,height .2s,opacity .3s}
+  .cur-ring{position:fixed;width:30px;height:30px;border:1px solid rgba(192,144,56,.4);border-radius:50%;pointer-events:none;z-index:9997;margin-left:-15px;margin-top:-15px;transition:width .5s var(--ease-out),height .5s var(--ease-out),border-color .3s,margin .5s var(--ease-out)}
+  .cur-ring.hov{width:54px;height:54px;margin-left:-27px;margin-top:-27px;border-color:var(--gold)}
+}
+
+/* Progress bar */
+.pgbar{position:fixed;top:0;left:0;height:1px;width:0;background:linear-gradient(90deg,var(--gold),var(--gold3));z-index:201;transition:width .12s linear}
+
+/* Header */
+header{position:fixed;inset:0 0 auto;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:30px 7vw;transition:padding .5s var(--ease),background .5s,border-color .5s}
+header.scrolled{padding:16px 7vw;background:rgba(5,4,3,.92);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border-bottom:1px solid var(--line2)}
 .brand{display:flex;align-items:center;gap:12px}
-.palacio-symbol{width:36px;height:auto;color:var(--gold);flex-shrink:0;transition:color .3s}
-.brand:hover .palacio-symbol{color:var(--gold2)}
-.brand-type b{display:block;font-family:var(--serif);font-weight:500;letter-spacing:.14em;font-size:13px;color:var(--ink)}
-.brand-type small{display:block;font-family:var(--sans);font-weight:200;color:var(--gold);letter-spacing:.46em;font-size:7px;margin-top:4px;text-transform:uppercase}
-nav{display:flex;gap:34px;align-items:center}
-nav a{font-family:var(--sans);font-weight:200;text-transform:uppercase;letter-spacing:.18em;font-size:9.5px;color:var(--muted);transition:color .3s;position:relative}
-nav a::after{content:'';position:absolute;left:0;bottom:-3px;width:0;height:1px;background:var(--gold);transition:width .35s var(--ease-out)}
+.brand-mark{width:32px;color:var(--gold);flex-shrink:0;transition:color .3s}
+.brand:hover .brand-mark{color:var(--gold3)}
+.brand-type strong{display:block;font-family:var(--serif);font-weight:500;font-size:12px;letter-spacing:.18em;color:var(--ink)}
+.brand-type em{display:block;font-family:var(--sans);font-weight:300;font-size:7px;letter-spacing:.5em;color:var(--gold);margin-top:3px;text-transform:uppercase;font-style:normal}
+nav{display:flex;align-items:center;gap:34px}
+nav a{font-family:var(--sans);font-weight:300;font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:var(--muted);transition:color .3s;position:relative}
+nav a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--gold);transition:width .35s var(--ease-out)}
 nav a:hover{color:var(--ink)}
 nav a:hover::after{width:100%}
-.nav-inquire{border:1px solid rgba(200,144,74,.35);padding:9px 22px;color:var(--gold) !important;transition:background .3s,border-color .3s,color .3s !important}
-.nav-inquire::after{display:none !important}
-.nav-inquire:hover{background:var(--gold);border-color:var(--gold);color:#0d0b09 !important}
+.nav-cta{border:1px solid rgba(192,144,56,.3);padding:9px 22px;color:var(--gold)!important}
+.nav-cta::after{display:none!important}
+.nav-cta:hover{background:var(--gold);border-color:var(--gold);color:var(--bg)!important}
 
-/* ── Reveal ──────────────────────────────────────────────────────────────── */
-[data-r]{opacity:0;transform:translateY(38px);transition:opacity 1s var(--ease-out),transform 1s var(--ease-out)}
+/* Scroll reveal */
+[data-r]{opacity:0;transform:translateY(46px);transition:opacity 1.15s var(--ease-out),transform 1.15s var(--ease-out)}
 [data-r].on{opacity:1;transform:none}
-[data-r="1"]{transition-delay:.12s}
-[data-r="2"]{transition-delay:.24s}
-[data-r="3"]{transition-delay:.36s}
-[data-r="4"]{transition-delay:.48s}
-[data-r="fade"]{transform:none}
+[data-r="1"]{transition-delay:.14s}[data-r="2"]{transition-delay:.28s}
+[data-r="3"]{transition-delay:.42s}[data-r="4"]{transition-delay:.56s}
+[data-r="fade"]{transform:scale(1.05);transition:opacity 1.4s var(--ease-out),transform 1.4s var(--ease-out)}
+[data-r="fade"].on{transform:scale(1)}
 
-/* ── Shared ──────────────────────────────────────────────────────────────── */
-.kicker{font-family:var(--sans);font-weight:200;text-transform:uppercase;letter-spacing:.28em;font-size:9.5px;color:var(--gold)}
-.eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:18px}
-.eyebrow::after{content:'';display:block;width:38px;height:1px;background:var(--gold);opacity:.55;flex-shrink:0}
-section{padding:130px 7vw}
-h1{font-family:var(--serif);font-weight:300;font-size:clamp(72px,13.5vw,152px);line-height:.83;letter-spacing:-.03em;color:var(--ink)}
-h2{font-family:var(--serif);font-weight:400;font-size:clamp(44px,6vw,82px);line-height:.98;letter-spacing:-.025em;color:var(--ink)}
+/* Shared typography */
+.eyebrow{font-family:var(--sans);font-weight:400;font-size:9.5px;text-transform:uppercase;letter-spacing:.35em;color:var(--gold);display:inline-flex;align-items:center;gap:14px}
+.eyebrow::after{content:"";display:block;width:28px;height:1px;background:var(--gold);opacity:.45;flex-shrink:0}
+h2{font-family:var(--serif);font-weight:400;font-size:clamp(42px,5.8vw,82px);line-height:.95;letter-spacing:-.025em;color:var(--ink);margin-top:20px}
 h2 em{font-style:italic;font-weight:300}
-h3{font-family:var(--serif);font-weight:500;font-size:clamp(20px,2.2vw,28px);line-height:1.2;letter-spacing:-.01em;color:var(--ink)}
-p{font-family:var(--sans);font-weight:300;color:var(--muted);line-height:1.88;font-size:15px}
+h3{font-family:var(--serif);font-weight:500;font-size:clamp(19px,2.1vw,26px);line-height:1.2;color:var(--ink)}
+p{font-family:var(--sans);font-weight:300;color:var(--muted);line-height:1.92;font-size:14.5px}
+section{padding:140px 7vw}
 
-/* ── Buttons ────────────────────────────────────────────────────────────── */
-.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;font-family:var(--sans);font-weight:300;text-transform:uppercase;letter-spacing:.18em;font-size:9.5px;border:1px solid rgba(255,255,255,.18);color:var(--ink);transition:all .35s var(--ease);position:relative;overflow:hidden}
-.btn::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.04);transform:translateX(-100%);transition:transform .4s var(--ease-out)}
-.btn:hover::before{transform:translateX(0)}
-.btn:hover{border-color:rgba(255,255,255,.45)}
-.btn.gold{background:var(--gold);border-color:var(--gold);color:#0d0b09}
-.btn.gold::before{background:rgba(255,255,255,.1)}
-.btn.gold:hover{background:var(--gold2);border-color:var(--gold2)}
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;font-family:var(--sans);font-weight:400;font-size:10px;text-transform:uppercase;letter-spacing:.2em;position:relative;overflow:hidden;transition:all .35s var(--ease)}
+.btn::before{content:"";position:absolute;inset:0;transform:translateX(-100%);transition:transform .45s var(--ease-out)}
+.btn:hover::before{transform:none}
+.btn-outline{border:1px solid rgba(255,255,255,.18);color:var(--ink)}
+.btn-outline::before{background:rgba(255,255,255,.05)}
+.btn-outline:hover{border-color:rgba(255,255,255,.4)}
+.btn-gold{background:var(--gold);border:1px solid var(--gold);color:var(--bg)}
+.btn-gold::before{background:var(--gold3)}
+.btn-gold:hover{border-color:var(--gold3)}
+.btn span{position:relative}
 
-/* ── Hero ─────────────────────────────────────────────────────────────────── */
-.hero{padding:0;position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;background:#0d0c0a;overflow:hidden}
-.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 14s var(--ease)}
-.hero-bg.loaded{transform:scale(1)}
-.hero-veil{position:absolute;inset:0;background:linear-gradient(0deg,#090806 0%,rgba(9,8,6,.68) 42%,rgba(9,8,6,.18) 78%,transparent 100%),linear-gradient(90deg,rgba(9,8,6,.55) 0%,transparent 55%)}
-.hero-copy{position:relative;z-index:2;padding:0 7vw 10vh;max-width:960px}
-.hero-kicker{display:flex;align-items:center;gap:18px;margin-bottom:32px}
-.hero-kicker::before{content:'';display:block;width:30px;height:1px;background:var(--gold)}
-.hero-lead{max-width:500px;margin-top:30px;color:rgba(240,229,212,.7);font-size:16px;line-height:1.8}
-.hero-btns{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:42px}
-.scroll-cue{position:absolute;bottom:44px;right:7vw;z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px}
-.scroll-cue-label{font-family:var(--sans);font-weight:200;font-size:7.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);writing-mode:vertical-rl}
-.scroll-cue-line{width:1px;height:56px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrl 2.2s ease-in-out infinite}
-@keyframes scrl{0%,100%{opacity:1;transform:scaleY(1) translateY(0)}55%{opacity:.3;transform:scaleY(.4) translateY(18px)}}
+/* Hero */
+.hero{min-height:100svh;position:relative;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:var(--bg)}
+.hero-bg-wrap{position:absolute;inset:0;overflow:hidden}
+.hero-bg{width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform 18s var(--ease)}
+.hero-bg.ldd{transform:scale(1.02)}
+.hero-veil{position:absolute;inset:0;background:linear-gradient(0deg,rgba(5,4,3,.96) 0%,rgba(5,4,3,.58) 38%,rgba(5,4,3,.18) 72%,rgba(5,4,3,.05) 100%),linear-gradient(90deg,rgba(5,4,3,.55) 0%,transparent 65%);z-index:1}
 
-/* ── Ticker ──────────────────────────────────────────────────────────────── */
-.ticker-wrap{overflow:hidden;background:var(--surface2);border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);padding:13px 0;user-select:none}
-.ticker-track{display:flex;gap:0;width:max-content;animation:tick 28s linear infinite}
-.ticker-track:hover{animation-play-state:paused}
-.ticker-item{display:flex;align-items:center;white-space:nowrap;padding:0 28px;font-family:var(--serif);font-weight:300;font-size:14px;letter-spacing:.06em;color:var(--muted2);font-style:italic}
-.ticker-sep{color:var(--gold);opacity:.5;margin:0 6px;font-style:normal}
-@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* Film bars */
+.film-bar{position:absolute;left:0;right:0;z-index:3;display:flex;align-items:center;justify-content:space-between;padding:0 7vw;font-family:var(--sans);font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:rgba(240,200,100,.4);opacity:0;transition:opacity .8s .4s}
+body.ldd .film-bar{opacity:1}
+.film-bar-top{top:0;height:52px;border-bottom:1px solid rgba(255,255,255,.04)}
+.film-bar-bottom{bottom:0;height:52px;border-top:1px solid rgba(255,255,255,.04)}
 
-/* ── Studio ─────────────────────────────────────────────────────────────── */
-.studio-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:9vw;align-items:start}
-.studio-head h2{margin-top:14px}
-.studio-body p+p{margin-top:18px}
-.studio-stats{margin-top:44px;border-top:1px solid var(--line2)}
-.studio-stat{display:grid;grid-template-columns:110px 1fr;align-items:baseline;gap:12px;padding:22px 0;border-bottom:1px solid var(--line2)}
-.stat-num{font-family:var(--serif);font-weight:300;font-size:42px;letter-spacing:-.03em;color:var(--ink);line-height:1}
-.stat-label{font-family:var(--sans);font-weight:200;font-size:9.5px;text-transform:uppercase;letter-spacing:.2em;color:var(--muted)}
+/* Hero body */
+.hero-body{position:relative;z-index:2;padding:0 7vw 90px;max-width:1200px}
+.hero-eyebrow{display:flex;align-items:center;gap:18px;margin-bottom:38px;opacity:0;transform:translateY(20px);transition:opacity .9s .15s,transform .9s .15s}
+body.ldd .hero-eyebrow{opacity:1;transform:none}
+.hero-eyebrow-line{display:block;width:34px;height:1px;background:var(--gold)}
+.hero-eyebrow-tag{font-family:var(--sans);font-size:9px;letter-spacing:.38em;text-transform:uppercase;color:var(--gold)}
+.hero-title{font-family:var(--serif);font-weight:300;font-size:clamp(80px,15.5vw,210px);line-height:.84;letter-spacing:-.03em;color:var(--ink)}
+.hw{display:block;overflow:hidden}
+.hw-i{display:block;transform:translateY(115%);opacity:0;transition:transform 1.5s var(--ease-out),opacity .9s}
+body.ldd .hw:nth-child(1) .hw-i{transform:none;opacity:1;transition-delay:.1s}
+body.ldd .hw:nth-child(2) .hw-i{transform:none;opacity:1;transition-delay:.3s}
+body.ldd .hw:nth-child(3) .hw-i{transform:none;opacity:1;transition-delay:.5s}
+.hw:nth-child(2){padding-left:min(11vw,148px)}
+.hw:nth-child(2) .hw-i{font-style:italic}
+.hero-lead{max-width:460px;margin-top:32px;color:rgba(237,227,212,.62);font-size:15px;line-height:1.88;opacity:0;transform:translateY(26px);transition:opacity 1s .95s,transform 1s .95s}
+body.ldd .hero-lead{opacity:1;transform:none}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:40px;opacity:0;transform:translateY(20px);transition:opacity 1s 1.15s,transform 1s 1.15s}
+body.ldd .hero-btns{opacity:1;transform:none}
 
-/* ── Split ───────────────────────────────────────────────────────────────── */
-.split-wrap{display:grid;grid-template-columns:1fr 1fr;min-height:660px;background:var(--surface)}
-.split-img{overflow:hidden;position:relative}
-.split-img img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
-.split-img:hover img{transform:scale(1.04)}
-.split-copy{padding:90px 8vw;display:flex;flex-direction:column;justify-content:center}
-.split-copy h2{margin:14px 0 26px}
-.split-copy .btn{margin-top:38px;align-self:flex-start}
+/* Scroll cue */
+.scroll-cue{position:absolute;bottom:60px;right:7vw;z-index:3;display:flex;flex-direction:column;align-items:center;gap:9px;opacity:0;transition:opacity .8s 1.5s}
+body.ldd .scroll-cue{opacity:1}
+.scroll-cue span{font-family:var(--sans);font-size:7px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);writing-mode:vertical-rl}
+.scroll-line{width:1px;height:52px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrl 2.4s ease-in-out infinite}
+@keyframes scrl{0%,100%{opacity:1;transform:scaleY(1) translateY(0)}55%{opacity:.2;transform:scaleY(.3) translateY(14px)}}
 
-/* ── Retreat ────────────────────────────────────────────────────────────── */
-.retreat-head{max-width:780px;margin-bottom:64px}
-.retreat-head h2{margin:14px 0 24px}
-.cards-grid{display:grid;grid-template-columns:1.32fr .68fr;gap:12px}
-.cards-col{display:flex;flex-direction:column;gap:12px}
-.rcard{position:relative;overflow:hidden;cursor:default}
-.rcard-main{min-height:720px}
-.rcard-sub{min-height:354px}
-.rcard img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .95s var(--ease)}
+/* Ticker dual-row */
+.ticker-wrap{overflow:hidden;background:var(--surface2);border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);padding:9px 0;user-select:none}
+.ticker-row{display:flex;width:max-content}
+.ticker-fwd{animation:tfwd 36s linear infinite}
+.ticker-rev{animation:trev 30s linear infinite;margin-top:7px}
+.ticker-wrap:hover .ticker-fwd,.ticker-wrap:hover .ticker-rev{animation-play-state:paused}
+.ti{display:flex;align-items:center;white-space:nowrap;padding:0 24px;font-family:var(--serif);font-weight:300;font-size:13.5px;letter-spacing:.05em;color:var(--muted2);font-style:italic}
+.ti-rev{color:rgba(192,144,56,.25);font-size:11px;font-style:normal;font-family:var(--sans);letter-spacing:.22em;text-transform:uppercase}
+.ti-sep{color:var(--gold);opacity:.35;margin:0 4px;font-style:normal}
+@keyframes tfwd{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes trev{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+
+/* Studio */
+#studio{position:relative;overflow:hidden;background:var(--surface)}
+.sec-deco{position:absolute;right:-1vw;top:50%;transform:translateY(-50%);font-family:var(--serif);font-size:clamp(160px,26vw,380px);font-weight:600;color:rgba(255,255,255,.016);line-height:1;pointer-events:none;user-select:none;letter-spacing:-.05em}
+.studio-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:7vw;align-items:start}
+.studio-left h2{margin-top:20px}
+.studio-stats{margin-top:54px;border-top:1px solid var(--line2)}
+.s-stat{display:flex;align-items:baseline;gap:14px;padding:26px 0;border-bottom:1px solid var(--line2)}
+.s-num{font-family:var(--serif);font-weight:300;font-size:54px;letter-spacing:-.04em;color:var(--ink);line-height:1;flex-shrink:0}
+.s-suf{font-family:var(--sans);font-weight:300;font-size:11px;letter-spacing:.1em;color:var(--gold);margin-right:6px}
+.s-lbl{font-family:var(--sans);font-weight:300;font-size:9px;text-transform:uppercase;letter-spacing:.22em;color:var(--muted)}
+.studio-right p+p{margin-top:22px}
+.studio-img{margin-top:48px;overflow:hidden}
+.studio-img img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .9s var(--ease)}
+.studio-img:hover img{transform:scale(1.04)}
+
+/* Manifesto */
+.manifesto{padding:80px 7vw;border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);position:relative}
+.manifesto-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 100% at 50% 50%,rgba(192,144,56,.04) 0%,transparent 70%);pointer-events:none}
+.manifesto p{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(22px,3vw,46px);line-height:1.38;letter-spacing:-.01em;color:var(--ink2);max-width:860px;margin:0 auto;text-align:center}
+.manifesto-mark{display:block;font-family:var(--serif);font-size:72px;line-height:.5;color:var(--gold);opacity:.2;text-align:center;margin-bottom:16px;font-style:normal}
+
+/* Retreat */
+.retreat-head{max-width:740px;margin-bottom:72px}
+.retreat-head h2{margin-top:20px}
+.retreat-head p{margin-top:24px}
+.retreat-cards{display:grid;grid-template-columns:1.32fr .68fr;gap:12px}
+.retreat-col{display:flex;flex-direction:column;gap:12px}
+.rcard{position:relative;overflow:hidden}
+.rcard-main{height:730px}
+.rcard-sub{height:358px}
+.rcard img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
 .rcard:hover img{transform:scale(1.04)}
-.rcard-veil{position:absolute;inset:0;background:linear-gradient(0deg,rgba(9,8,6,.9) 0%,rgba(9,8,6,.28) 52%,transparent 100%);transition:opacity .4s}
-.rcard:hover .rcard-veil{opacity:.75}
-.rcard-body{position:absolute;z-index:2;left:28px;bottom:26px;right:24px}
-.rcard-body .kicker{margin-bottom:9px}
-.rcard-body h3{color:var(--ink)}
-.rcard-body p{margin-top:10px;font-size:13.5px;color:rgba(240,229,212,.65);max-width:380px}
+.rcard-ov{position:absolute;inset:0;background:linear-gradient(0deg,rgba(5,4,3,.93) 0%,rgba(5,4,3,.22) 52%,transparent 100%);transition:opacity .45s}
+.rcard:hover .rcard-ov{opacity:.7}
+.rcard-body{position:absolute;z-index:2;left:30px;right:24px;bottom:28px}
+.rcard-tag{font-family:var(--sans);font-size:8.5px;text-transform:uppercase;letter-spacing:.32em;color:var(--gold);display:block;margin-bottom:10px}
+.rcard-body p{margin-top:10px;font-size:13px;color:rgba(237,227,212,.58);max-width:340px}
 
-/* ── Villa ─────────────────────────────────────────────────────────────────── */
-.villa{background:var(--surface)}
-.villa-intro{display:grid;grid-template-columns:.88fr 1.12fr;gap:7vw;align-items:end;margin-bottom:64px}
-.villa-intro h2{margin-top:14px}
-.villa-copy p+p{margin-top:18px}
-.villa-nums{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);margin-top:40px}
-.vnum{padding:22px 14px 22px 0;position:relative}
-.vnum+.vnum{padding-left:14px;border-left:1px solid var(--line2)}
-.vnum-n{display:block;font-family:var(--serif);font-weight:300;font-size:36px;letter-spacing:-.02em;color:var(--ink);line-height:1;margin-bottom:5px}
-.vnum-l{font-family:var(--sans);font-weight:200;font-size:9px;text-transform:uppercase;letter-spacing:.2em;color:var(--muted)}
-.villa-cta{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap}
-.villa-mosaic{display:grid;grid-template-columns:1.35fr .65fr;grid-template-rows:358px 358px;gap:10px}
-.villa-mosaic figure{margin:0;overflow:hidden;position:relative;background:var(--line)}
-.villa-mosaic figure:first-child{grid-row:1/3}
-.villa-mosaic img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
-.villa-mosaic figure:hover img{transform:scale(1.04)}
-.villa-mosaic figcaption{position:absolute;left:18px;bottom:16px;padding:6px 12px;background:rgba(9,8,6,.75);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-family:var(--sans);font-weight:200;font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line2)}
-.villa-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px}
-.villa-strip-cell{overflow:hidden;height:234px}
-.villa-strip-cell img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
-.villa-strip-cell:hover img{transform:scale(1.06)}
+/* Villa */
+.villa-section{background:var(--surface)}
+.villa-header{display:grid;grid-template-columns:1fr 1.5fr;gap:7vw;align-items:start;margin-bottom:60px}
+.villa-header h2{margin-top:20px}
+.villa-right p+p{margin-top:22px}
+.villa-tokens{display:flex;flex-wrap:wrap;gap:8px;margin-top:38px}
+.villa-tokens span{font-family:var(--sans);font-weight:300;font-size:9px;text-transform:uppercase;letter-spacing:.22em;color:var(--gold);border:1px solid rgba(192,144,56,.28);padding:7px 14px}
+.villa-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
 
-/* ── Equipment ───────────────────────────────────────────────────────────── */
-.equip-wrap{display:grid;grid-template-columns:.72fr 1.28fr;gap:10vw;align-items:start}
-.equip-intro h2{margin:14px 0 26px}
-.equip-intro p{margin-bottom:36px}
-.gear{display:grid;grid-template-columns:1fr 1fr;gap:0}
-.gear-item{padding:30px 0;border-top:1px solid var(--line2)}
-.gear-item:nth-child(odd){padding-right:44px;border-right:1px solid var(--line2)}
-.gear-item:nth-child(even){padding-left:44px}
-.gear-item:last-child{grid-column:1/-1;border-right:none;padding-right:0;padding-left:0}
-.gear-n{font-family:var(--serif);font-weight:300;font-size:11px;letter-spacing:.18em;color:var(--muted2);margin-bottom:12px}
-.gear-item h3{font-size:22px;margin-bottom:10px}
-.gear-item p{font-size:14px}
+/* Horizontal scroll */
+.hscroll-wrap{margin:0 -7vw;overflow:hidden}
+.hscroll{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:10px;padding:0 7vw;scrollbar-width:none;padding-bottom:2px}
+.hscroll::-webkit-scrollbar{display:none}
+.hscroll-item{flex:0 0 auto;width:min(62vw,680px);scroll-snap-align:start;position:relative;overflow:hidden}
+.hscroll-item img{height:500px;width:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.hscroll-item:hover img{transform:scale(1.04)}
+.hscroll-label{position:absolute;bottom:16px;left:18px;font-family:var(--sans);font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);padding:6px 12px;background:rgba(5,4,3,.76);backdrop-filter:blur(8px);border:1px solid var(--line2)}
 
-/* ── Gallery ─────────────────────────────────────────────────────────────── */
-.gallery-top{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:44px}
-.gallery-top h2{margin-top:14px}
-.gallery-mosaic{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.gitem{overflow:hidden;height:310px}
-.gitem:nth-child(1),.gitem:nth-child(6){grid-column:span 2}
-.gitem img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
-.gitem:hover img{transform:scale(1.05)}
+/* Equipment */
+.equip-section{background:var(--bg2)}
+.equip-header{max-width:640px;margin-bottom:72px}
+.equip-header h2{margin-top:20px}
+.equip-body{display:grid;grid-template-columns:.75fr 1.25fr;gap:7vw;align-items:start}
+.equip-img-wrap{position:sticky;top:110px;overflow:hidden}
+.equip-img-wrap img{width:100%;aspect-ratio:2/3;object-fit:cover;transition:transform .9s var(--ease)}
+.equip-img-wrap:hover img{transform:scale(1.04)}
+.equip-list{display:flex;flex-direction:column}
+.eq-item{display:flex;gap:26px;align-items:flex-start;padding:32px 0;border-top:1px solid var(--line2)}
+.eq-item:last-child{border-bottom:1px solid var(--line2)}
+.eq-n{font-family:var(--serif);font-weight:300;font-size:38px;line-height:1;color:rgba(255,255,255,.055);flex-shrink:0;width:48px;transition:color .35s}
+.eq-item:hover .eq-n{color:var(--gold)}
+.eq-item h3{margin-bottom:10px}
+.eq-item p{font-size:14px}
 
-/* ── CTA ──────────────────────────────────────────────────────────────────── */
-.cta{text-align:center;padding:160px 7vw;background:radial-gradient(ellipse 80% 65% at 50% 50%,rgba(44,26,14,.85) 0%,var(--bg) 68%);position:relative}
-.cta::before{content:'';position:absolute;top:0;left:7vw;right:7vw;height:1px;background:linear-gradient(90deg,transparent,var(--line2) 30%,var(--line2) 70%,transparent)}
-.cta-icon{width:58px;color:var(--gold);margin:0 auto 34px;opacity:.9}
-.cta .kicker{margin-bottom:6px}
-.cta h2{max-width:840px;margin:22px auto 0;font-style:italic}
-.cta-sub{font-family:var(--sans);font-weight:200;font-size:9.5px;text-transform:uppercase;letter-spacing:.24em;color:var(--muted2);margin:22px 0 46px}
-.cta-sub em{color:var(--gold);font-style:normal;opacity:.65;margin:0 12px}
+/* Gallery */
+.gallery-section{padding-left:0;padding-right:0;padding-bottom:0;background:var(--surface)}
+.gallery-hdr{padding:0 7vw 64px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:24px}
+.gallery-hdr h2{margin-top:18px}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+.gi{overflow:hidden;height:340px;position:relative;cursor:pointer}
+.gi:nth-child(1){grid-row:span 2}
+.gi:nth-child(6){grid-column:span 2}
+.gi img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease),filter .4s}
+.gi:hover img{transform:scale(1.06);filter:brightness(1.08)}
+.gi-overlay{position:absolute;inset:0;background:rgba(5,4,3,.4);opacity:0;display:flex;align-items:center;justify-content:center;transition:opacity .4s;font-family:var(--sans);font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:var(--ink)}
+.gi:hover .gi-overlay{opacity:1}
 
-/* ── Footer ─────────────────────────────────────────────────────────────── */
-footer{padding:38px 7vw;border-top:1px solid var(--line2);display:flex;align-items:center;justify-content:space-between;gap:24px}
-.foot-brand{display:flex;align-items:center;gap:14px}
-.foot-brand .palacio-symbol{width:36px;color:var(--gold)}
-.foot-brand b{display:block;font-family:var(--serif);font-weight:500;font-size:13px;letter-spacing:.14em;color:var(--ink)}
-.foot-brand small{display:block;font-family:var(--sans);font-weight:200;font-size:7px;letter-spacing:.46em;color:var(--gold);margin-top:4px;text-transform:uppercase}
-.foot-right{text-align:right;font-family:var(--sans);font-weight:200;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted2);line-height:2}
+/* Lightbox */
+.lightbox{position:fixed;inset:0;background:rgba(5,4,3,.97);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);z-index:9995;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s}
+.lightbox.open{opacity:1;pointer-events:all}
+.lb-img{max-width:90vw;max-height:90vh;width:auto;height:auto;transform:scale(.94);transition:transform .55s var(--ease-spring)}
+.lightbox.open .lb-img{transform:scale(1)}
+.lb-close{position:absolute;top:28px;right:34px;background:none;border:1px solid rgba(255,255,255,.15);color:var(--ink);font-size:14px;width:42px;height:42px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .3s,border-color .3s;z-index:1}
+.lb-close:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.38)}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);background:none;border:1px solid rgba(255,255,255,.12);color:var(--ink);font-size:20px;width:50px;height:50px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .3s,border-color .3s;z-index:1}
+.lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.3)}
+.lb-prev{left:32px}.lb-next{right:32px}
 
-/* ── Mobile ─────────────────────────────────────────────────────────────── */
-@media(max-width:900px){
-  header{padding:16px 20px}
-  header.scrolled{padding:14px 20px}
-  nav a:not(.nav-inquire):not(:last-child){display:none}
-  section{padding:90px 20px}
-  h1{font-size:66px}
-  h2{font-size:42px}
-  .hero-copy{padding:0 20px 60px}
+/* CTA */
+.cta-section{padding:0;min-height:100svh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.cta-bg-wrap{position:absolute;inset:0;overflow:hidden}
+.cta-bg{width:100%;height:100%;object-fit:cover}
+.cta-veil{position:absolute;inset:0;background:rgba(5,4,3,.8);z-index:1}
+.cta-glow{position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 50% 50%,rgba(48,28,12,.6) 0%,transparent 70%);z-index:1}
+.cta-body{position:relative;z-index:2;text-align:center;padding:80px 7vw}
+.cta-mark{width:54px;color:var(--gold);margin:0 auto 42px;opacity:.85}
+.cta-body h2{margin-top:24px}
+.cta-meta{font-family:var(--sans);font-weight:300;font-size:9px;text-transform:uppercase;letter-spacing:.3em;color:var(--muted2);margin:28px 0 52px}
+.cta-meta em{color:var(--gold);font-style:normal;opacity:.55;margin:0 14px}
+
+/* Footer */
+footer{padding:46px 7vw;border-top:1px solid var(--line2);display:grid;grid-template-columns:42px 1fr auto;align-items:center;gap:24px}
+.foot-svg{width:42px;color:var(--gold)}
+.foot-center{text-align:center}
+.foot-title{font-family:var(--serif);font-weight:500;font-size:12px;letter-spacing:.2em;color:var(--ink)}
+.foot-email{display:block;font-family:var(--sans);font-size:9px;letter-spacing:.15em;color:var(--muted);margin-top:5px;transition:color .3s}
+.foot-email:hover{color:var(--gold)}
+.foot-right{text-align:right;font-family:var(--sans);font-weight:300;font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted2);line-height:2.3}
+.foot-coords{color:var(--gold);opacity:.5}
+
+/* Mobile */
+@media(max-width:960px){
+  section{padding:88px 24px}
+  header{padding:18px 24px}header.scrolled{padding:14px 24px}
+  nav a:not(.nav-cta){display:none}
+  h2{font-size:clamp(36px,8vw,58px)}
+  .hero-body{padding:0 24px 76px}
+  .film-bar{padding:0 24px;font-size:7px}
   .scroll-cue{display:none}
+  .hero-title{font-size:clamp(68px,13vw,110px)}
   .studio-grid{display:block}
-  .studio-head{margin-bottom:40px}
-  .split-wrap{display:block}
-  .split-img{height:420px}
-  .split-copy{padding:60px 20px}
-  .cards-grid{grid-template-columns:1fr}
-  .rcard-main,.rcard-sub{min-height:400px}
-  .villa-intro{display:block}
-  .villa-intro h2{margin-bottom:30px}
-  .villa-mosaic{grid-template-columns:1fr;grid-template-rows:auto}
-  .villa-mosaic figure:first-child{grid-row:auto;height:340px}
-  .villa-mosaic figure{height:260px}
-  .villa-strip{grid-template-columns:1fr 1fr}
-  .villa-strip-cell{height:190px}
-  .equip-wrap{display:block}
-  .equip-intro{margin-bottom:48px}
-  .gear-item:nth-child(odd){padding-right:0;border-right:none}
-  .gear-item:nth-child(even){padding-left:0}
-  .gallery-top{display:block}
-  .gallery-top .btn{display:none}
-  .gallery-mosaic{grid-template-columns:1fr 1fr}
-  .gitem{height:210px}
-  .gitem:nth-child(1),.gitem:nth-child(6){grid-column:span 2}
-  .cta{padding:100px 20px}
-  footer{flex-direction:column;align-items:flex-start}
-  .foot-right{text-align:left}
+  .studio-left{margin-bottom:48px}
+  .sec-deco{font-size:clamp(100px,22vw,180px)}
+  .manifesto p{font-size:clamp(18px,4.5vw,28px)}
+  .manifesto{padding:60px 24px}
+  .retreat-cards{grid-template-columns:1fr}
+  .rcard-main{height:420px}.rcard-sub{height:300px}
+  .retreat-col{gap:10px}
+  .villa-header{grid-template-columns:1fr;gap:40px}
+  .hscroll-wrap{margin:0 -24px}
+  .hscroll{padding:0 24px}
+  .hscroll-item{width:82vw}
+  .hscroll-item img{height:360px}
+  .equip-body{grid-template-columns:1fr}
+  .equip-img-wrap{position:static;margin-bottom:40px}
+  .equip-img-wrap img{aspect-ratio:16/9}
+  .gallery-grid{grid-template-columns:1fr 1fr;gap:2px}
+  .gi{height:200px}
+  .gi:nth-child(1){grid-row:auto}
+  .gi:nth-child(6){grid-column:auto}
+  .gallery-hdr{padding:0 24px 48px;display:block}
+  .gallery-hdr .btn{display:none}
+  footer{grid-template-columns:1fr;gap:16px}
+  .foot-center,.foot-right{text-align:left}
+  .cta-section{min-height:auto}
+  .lb-prev,.lb-next{display:none}
 }
 </style>
 </head>
 <body>
 
-<div class="progress-bar" id="pb"></div>
+<div class="pre" id="pre" aria-hidden="true">
+  <div class="pre-inner">
+    <div class="pre-line"></div>
+    <div class="pre-row"><span class="pre-row-inner">PALACIO</span></div>
+    <div class="pre-row"><span class="pre-row-inner">MUSICAL</span></div>
+    <div class="pre-line pre-line-b"></div>
+    <div class="pre-sub">Studio &middot; Tambor, Costa Rica</div>
+  </div>
+</div>
+
+<div class="cur-dot" id="curDot" aria-hidden="true"></div>
+<div class="cur-ring" id="curRing" aria-hidden="true"></div>
+<div class="pgbar" id="pgbar" aria-hidden="true"></div>
 
 <header id="hdr">
-  <a class="brand" href="#top">
-    <svg class="palacio-symbol" viewBox="0 0 120 150" role="img" aria-label="Palacio Musical Studio">
-      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M15 125V60C15 26 35 8 60 8s45 18 45 52v65"/><path d="M27 125V61c0-25 14-40 33-40s33 15 33 40v64"/>
-        <path d="M39 125V62c0-17 8-27 21-27s21 10 21 27v63"/><path d="M50 125V65c0-10 4-16 10-16s10 6 10 16v60"/>
-        <path d="M28 125h64"/><path d="M60 70v39"/>
-        <path d="M60 77c-6-8-12-10-18-6 7 1 11 5 13 11"/><path d="M60 77c6-8 12-10 18-6-7 1-11 5-13 11"/>
-        <path d="M60 83c-5-4-10-4-15 0 6 0 10 3 12 7"/><path d="M60 83c5-4 10-4 15 0-6 0-10 3-12 7"/>
-        <path d="M52 109h16M47 116h26"/>
-      </g>
+  <a class="brand" href="#top" aria-label="Palacio Musical Studio">
+    <svg class="brand-mark" viewBox="0 0 120 150" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M15 125V60C15 26 35 8 60 8s45 18 45 52v65"/>
+      <path d="M27 125V61c0-25 14-40 33-40s33 15 33 40v64"/>
+      <path d="M39 125V62c0-17 8-27 21-27s21 10 21 27v63"/>
+      <path d="M50 125V65c0-10 4-16 10-16s10 6 10 16v60"/>
+      <path d="M28 125h64"/><path d="M60 70v39"/>
+      <path d="M60 77c-6-8-12-10-18-6 7 1 11 5 13 11"/>
+      <path d="M60 77c6-8 12-10 18-6-7 1-11 5-13 11"/>
+      <path d="M60 83c-5-4-10-4-15 0 6 0 10 3 12 7"/>
+      <path d="M60 83c5-4 10-4 15 0-6 0-10 3-12 7"/>
+      <path d="M52 109h16M47 116h26"/>
     </svg>
-    <div class="brand-type"><b>PALACIO MUSICAL</b><small>STUDIO</small></div>
+    <div class="brand-type"><strong>PALACIO MUSICAL</strong><em>Studio</em></div>
   </a>
-  <nav>
+  <nav aria-label="Main navigation">
     <a href="#studio">Studio</a>
     <a href="#retreat">Retreat</a>
     <a href="#villa">Villa</a>
     <a href="#gallery">Gallery</a>
-    <a href="#inquire" class="nav-inquire">Inquire</a>
+    <a href="#inquire" class="nav-cta">Inquire</a>
   </nav>
 </header>
 
 <main id="top">
 
-<!-- HERO -->
 <section class="hero">
-  <img class="hero-bg" id="heroBg" src="images/hero.jpeg" alt="Palacio Musical beachfront villa at sunset, Tambor Costa Rica">
+  <div class="hero-bg-wrap" id="heroBgWrap">
+    <img class="hero-bg" id="heroBg" src="images/hero.jpeg" alt="Palacio Musical beachfront villa at sunset, Tambor Costa Rica" loading="eager">
+  </div>
   <div class="hero-veil"></div>
-  <div class="hero-copy">
-    <div class="hero-kicker kicker" data-r>Private Recording Retreat &middot; Tambor, Costa Rica</div>
-    <h1 data-r="1">Stay.<br>Create.<br>Record.</h1>
-    <p class="hero-lead" data-r="2">A private destination where musicians live, write, rehearse and record together &mdash; inside a 12,500&nbsp;sq&nbsp;ft luxury oceanfront villa with a professionally equipped studio.</p>
-    <div class="hero-btns" data-r="3">
-      <a class="btn gold" href="#inquire">Plan your retreat</a>
-      <a class="btn" href="#studio">Explore the studio</a>
+  <div class="film-bar film-bar-top" aria-hidden="true">
+    <span>9&deg;48&prime;N &middot; 85&deg;00&prime;W &middot; Tambor, Puntarenas</span>
+    <span>Est. 2024 &middot; Private Recording Retreat</span>
+  </div>
+  <div class="hero-body">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-line" aria-hidden="true"></span>
+      <span class="hero-eyebrow-tag">Palacio Musical Studio</span>
+    </div>
+    <h1 class="hero-title">
+      <span class="hw"><span class="hw-i">Stay.</span></span>
+      <span class="hw"><span class="hw-i">Create.</span></span>
+      <span class="hw"><span class="hw-i">Record.</span></span>
+    </h1>
+    <p class="hero-lead">A private destination where musicians live, write, rehearse and record &mdash; inside a 12,500&nbsp;sq&nbsp;ft luxury oceanfront villa on the Pacific coast of Costa Rica.</p>
+    <div class="hero-btns">
+      <a class="btn btn-gold" href="#inquire"><span>Plan your retreat</span></a>
+      <a class="btn btn-outline" href="#studio"><span>Explore studio</span></a>
     </div>
   </div>
   <div class="scroll-cue" aria-hidden="true">
-    <span class="scroll-cue-label">Scroll</span>
-    <div class="scroll-cue-line"></div>
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+  <div class="film-bar film-bar-bottom" aria-hidden="true">
+    <span>12,500&nbsp;sq&nbsp;ft &middot; 7 en-suites &middot; Direct beach access</span>
+    <span>Whale watching deck &middot; Tiki Bar &middot; In-house engineer</span>
   </div>
 </section>
 
-<!-- TICKER -->
 <div class="ticker-wrap" aria-hidden="true">
-  <div class="ticker-track">
-    <span class="ticker-item">Tambor, Costa Rica<span class="ticker-sep">&middot;</span></span>
-    <span class="ticker-item">Private Recording Retreat<span class="ticker-sep">&middot;</span></span>
-    <span class="ticker-item">12,500 sq ft Beachfront<span class="ticker-sep">&middot;</span></span>
-    <span class="ticker-item">7 Private En-Suites<span class="ticker-sep">&middot;</span></span>
-    <span class="ticker-item">Direct Beach Access<span class="ticker-sep">&middot;</span></span>
-    <span class="ticker-item">Whale Watching Deck<span class="ticker-sep">&middot;</span></span>
-    <span class="ticker-item">Tiki Bar<span class="ticker-sep">&middot;</span></span>
-    <span class="ticker-item">In-House Engineer<span class="ticker-sep">&middot;</span></span>
-    <span class="ticker-item">Pacific Ocean Views<span class="ticker-sep">&middot;</span></span>
-    <span class="ticker-item">Tambor, Costa Rica<span class="ticker-sep">&middot;</span></span>
-    <span class="ticker-item">Private Recording Retreat<span class="ticker-sep">&middot;</span></span>
-    <span class="ticker-item">12,500 sq ft Beachfront<span class="ticker-sep">&middot;</span></span>
-    <span class="ticker-item">7 Private En-Suites<span class="ticker-sep">&middot;</span></span>
-    <span class="ticker-item">Direct Beach Access<span class="ticker-sep">&middot;</span></span>
-    <span class="ticker-item">Whale Watching Deck<span class="ticker-sep">&middot;</span></span>
-    <span class="ticker-item">Tiki Bar<span class="ticker-sep">&middot;</span></span>
-    <span class="ticker-item">In-House Engineer<span class="ticker-sep">&middot;</span></span>
-    <span class="ticker-item">Pacific Ocean Views<span class="ticker-sep">&middot;</span></span>
+  <div class="ticker-row ticker-fwd">
+    <span class="ti">Tambor, Costa Rica<span class="ti-sep">&middot;</span></span>
+    <span class="ti">Private Recording Retreat<span class="ti-sep">&middot;</span></span>
+    <span class="ti">12,500 sq ft Beachfront<span class="ti-sep">&middot;</span></span>
+    <span class="ti">7 Private En-Suites<span class="ti-sep">&middot;</span></span>
+    <span class="ti">Direct Beach Access<span class="ti-sep">&middot;</span></span>
+    <span class="ti">Whale Watching Deck<span class="ti-sep">&middot;</span></span>
+    <span class="ti">Tiki Bar<span class="ti-sep">&middot;</span></span>
+    <span class="ti">In-House Engineer<span class="ti-sep">&middot;</span></span>
+    <span class="ti">Pacific Ocean Views<span class="ti-sep">&middot;</span></span>
+    <span class="ti">Tambor, Costa Rica<span class="ti-sep">&middot;</span></span>
+    <span class="ti">Private Recording Retreat<span class="ti-sep">&middot;</span></span>
+    <span class="ti">12,500 sq ft Beachfront<span class="ti-sep">&middot;</span></span>
+    <span class="ti">7 Private En-Suites<span class="ti-sep">&middot;</span></span>
+    <span class="ti">Direct Beach Access<span class="ti-sep">&middot;</span></span>
+    <span class="ti">Whale Watching Deck<span class="ti-sep">&middot;</span></span>
+    <span class="ti">Tiki Bar<span class="ti-sep">&middot;</span></span>
+    <span class="ti">In-House Engineer<span class="ti-sep">&middot;</span></span>
+    <span class="ti">Pacific Ocean Views<span class="ti-sep">&middot;</span></span>
+  </div>
+  <div class="ticker-row ticker-rev">
+    <span class="ti ti-rev">Recording Studio<span class="ti-sep">&middot;</span></span>
+    <span class="ti ti-rev">Pacific Coast<span class="ti-sep">&middot;</span></span>
+    <span class="ti ti-rev">Luxury Villa<span class="ti-sep">&middot;</span></span>
+    <span class="ti ti-rev">Full Band Retreat<span class="ti-sep">&middot;</span></span>
+    <span class="ti ti-rev">Songwriting<span class="ti-sep">&middot;</span></span>
+    <span class="ti ti-rev">Production<span class="ti-sep">&middot;</span></span>
+    <span class="ti ti-rev">Costa Rica<span class="ti-sep">&middot;</span></span>
+    <span class="ti ti-rev">By Appointment<span class="ti-sep">&middot;</span></span>
+    <span class="ti ti-rev">Recording Studio<span class="ti-sep">&middot;</span></span>
+    <span class="ti ti-rev">Pacific Coast<span class="ti-sep">&middot;</span></span>
+    <span class="ti ti-rev">Luxury Villa<span class="ti-sep">&middot;</span></span>
+    <span class="ti ti-rev">Full Band Retreat<span class="ti-sep">&middot;</span></span>
+    <span class="ti ti-rev">Songwriting<span class="ti-sep">&middot;</span></span>
+    <span class="ti ti-rev">Production<span class="ti-sep">&middot;</span></span>
+    <span class="ti ti-rev">Costa Rica<span class="ti-sep">&middot;</span></span>
+    <span class="ti ti-rev">By Appointment<span class="ti-sep">&middot;</span></span>
   </div>
 </div>
 
-<!-- THE STUDIO -->
 <section id="studio">
+  <div class="sec-deco" aria-hidden="true">01</div>
   <div class="studio-grid">
-    <div class="studio-head">
-      <div class="eyebrow kicker" data-r>01 &middot; The Studio</div>
-      <h2 data-r="1">A studio built for<br><em>uninterrupted</em><br>creativity.</h2>
+    <div class="studio-left">
+      <div class="eyebrow" data-r>The Studio</div>
+      <h2 data-r="1">Built for<br><em>uninterrupted</em><br>creativity.</h2>
+      <div class="studio-stats" data-r="2">
+        <div class="s-stat">
+          <span class="s-num" data-count="7">0</span>
+          <span class="s-lbl">Private en-suites</span>
+        </div>
+        <div class="s-stat">
+          <span class="s-num" data-count="18">0</span>
+          <span class="s-lbl">Guests capacity</span>
+        </div>
+        <div class="s-stat">
+          <span class="s-num" data-count="12500">0</span><span class="s-suf">&nbsp;sq ft</span>
+          <span class="s-lbl">Beachfront villa</span>
+        </div>
+      </div>
     </div>
-    <div class="studio-body">
+    <div class="studio-right">
       <p data-r>Palacio Musical combines a warm, inspiring recording environment with the privacy of an entire villa. Artists move naturally between writing sessions, rehearsals, recording and downtime &mdash; without ever leaving the property.</p>
       <p data-r="1">From vocal performances and songwriting demos to full band sessions, the studio is designed to keep the creative process immediate, comfortable and focused.</p>
-      <div class="studio-stats" data-r="2">
-        <div class="studio-stat"><span class="stat-num">7</span><span class="stat-label">Private en-suites</span></div>
-        <div class="studio-stat"><span class="stat-num">18</span><span class="stat-label">Guests capacity</span></div>
-        <div class="studio-stat"><span class="stat-num">12,500</span><span class="stat-label">sq&nbsp;ft &middot; beachfront villa</span></div>
+      <div class="studio-img" data-r="2">
+        <img src="images/microphone-split.jpeg" alt="Professional condenser microphone at Palacio Musical Studio">
       </div>
     </div>
   </div>
 </section>
 
-<!-- SPLIT -->
-<div class="split-wrap">
-  <div class="split-img" data-r="fade">
-    <img src="images/microphone-split.jpeg" alt="Professional condenser microphone at Palacio Musical Studio">
-  </div>
-  <div class="split-copy">
-    <div class="eyebrow kicker" data-r>Professional atmosphere</div>
-    <h2 data-r="1">Capture the moment<br><em>while it is still alive.</em></h2>
-    <p data-r="2">From vocal performances and songwriting demos to full band sessions, the studio is designed to keep the creative process immediate, comfortable and focused.</p>
-    <a class="btn" href="#equipment" data-r="3">View equipment</a>
-  </div>
+<div class="manifesto">
+  <div class="manifesto-bg" aria-hidden="true"></div>
+  <span class="manifesto-mark" aria-hidden="true">&ldquo;</span>
+  <p data-r>&ldquo;Where paradise meets the studio &mdash; the world&rsquo;s most extraordinary setting for musicians to live, create, and record together.&rdquo;</p>
 </div>
 
-<!-- THE RETREAT -->
 <section id="retreat">
   <div class="retreat-head">
-    <div class="eyebrow kicker" data-r>02 &middot; The Retreat</div>
+    <div class="eyebrow" data-r>The Retreat</div>
     <h2 data-r="1">More than<br>studio time.</h2>
     <p data-r="2">Rent the entire estate &mdash; villa and studio together &mdash; bring your creative team and make the whole stay part of the project. Seven private en-suites, direct beach access and a whale watching deck with Tiki Bar, all on the Pacific coast of Costa Rica.</p>
   </div>
-  <div class="cards-grid">
+  <div class="retreat-cards">
     <div class="rcard rcard-main" data-r>
       <img src="images/guitars-card.jpeg" alt="Guitars at Palacio Musical Studio">
-      <div class="rcard-veil"></div>
+      <div class="rcard-ov"></div>
       <div class="rcard-body">
-        <div class="kicker">Live together</div>
+        <span class="rcard-tag">Live together</span>
         <h3>Write without watching the clock</h3>
         <p>Turn ideas into songs in a setting made for extended creative sessions.</p>
       </div>
     </div>
-    <div class="cards-col">
+    <div class="retreat-col">
       <div class="rcard rcard-sub" data-r="1">
         <img src="images/drums-card.jpeg" alt="DW drum kit at Palacio Musical">
-        <div class="rcard-veil"></div>
+        <div class="rcard-ov"></div>
         <div class="rcard-body">
-          <div class="kicker">Play together</div>
+          <span class="rcard-tag">Play together</span>
           <h3>Full-band energy</h3>
         </div>
       </div>
       <div class="rcard rcard-sub" data-r="2">
-        <img src="images/monitor-card.jpeg" alt="Studio monitor">
-        <div class="rcard-veil"></div>
+        <img src="images/monitor-card.jpeg" alt="Studio monitor at Palacio Musical">
+        <div class="rcard-ov"></div>
         <div class="rcard-body">
-          <div class="kicker">Listen closely</div>
+          <span class="rcard-tag">Listen closely</span>
           <h3>Detailed monitoring</h3>
         </div>
       </div>
@@ -391,157 +521,296 @@ footer{padding:38px 7vw;border-top:1px solid var(--line2);display:flex;align-ite
   </div>
 </section>
 
-<!-- THE VILLA -->
-<section id="villa" class="villa">
-  <div class="villa-intro">
-    <div>
-      <div class="eyebrow kicker" data-r>Your Private Residence</div>
+<section id="villa" class="villa-section">
+  <div class="villa-header">
+    <div class="villa-left">
+      <div class="eyebrow" data-r>The Villa</div>
       <h2 data-r="1">Live where<br>you create.</h2>
     </div>
-    <div>
-      <p data-r>Palacio Musical is more than a recording destination. Your group stays together in a 12,500&nbsp;sq&nbsp;ft private beachfront estate with direct ocean access, tropical gardens and panoramic Pacific views across three open-air decks.</p>
-      <p data-r="1">When you&rsquo;re not in the studio, step out to the whale watching deck, gather at the Tiki Bar, walk straight to the secluded beach, or simply unwind in one of seven private en-suites &mdash; all without leaving the property.</p>
-      <div class="villa-nums" data-r="2">
-        <div class="vnum"><span class="vnum-n">7</span><span class="vnum-l">Private en-suites</span></div>
-        <div class="vnum"><span class="vnum-n">18</span><span class="vnum-l">Guests</span></div>
-        <div class="vnum"><span class="vnum-n">12,500</span><span class="vnum-l">sq&nbsp;ft &middot; Beachfront</span></div>
+    <div class="villa-right">
+      <p data-r>Palacio Musical is a 12,500&nbsp;sq&nbsp;ft private beachfront estate with direct ocean access, tropical gardens and panoramic Pacific views across three open-air decks. Your group stays together, completely private.</p>
+      <p data-r="1">Step out to the whale watching deck, gather at the Tiki Bar, walk straight to the secluded beach, or unwind in one of seven private en-suites &mdash; all without leaving the property.</p>
+      <div class="villa-tokens" data-r="2">
+        <span>7 En-Suites</span>
+        <span>18 Guests</span>
+        <span>12,500&nbsp;sq&nbsp;ft</span>
+        <span>Direct Beach</span>
+        <span>Tiki Bar</span>
+        <span>Whale Deck</span>
+        <span>3 Open Decks</span>
+        <span>Pacific Views</span>
       </div>
-      <div class="villa-cta" data-r="3">
-        <a class="btn gold" href="#inquire">Request availability</a>
-        <a class="btn" href="https://my.matterport.com/show/?m=PAjrDDM98oj" target="_blank" rel="noopener">Virtual Tour &nearr;</a>
+      <div class="villa-btns" data-r="3">
+        <a class="btn btn-gold" href="#inquire"><span>Request availability</span></a>
+        <a class="btn btn-outline" href="https://my.matterport.com/show/?m=PAjrDDM98oj" target="_blank" rel="noopener"><span>Virtual Tour &nearr;</span></a>
       </div>
     </div>
   </div>
-  <div class="villa-mosaic">
-    <figure data-r><img src="images/night-estate.jpeg" alt="Palacio Musical illuminated at night"><figcaption>The Estate</figcaption></figure>
-    <figure data-r="1"><img src="images/ocean-view.jpeg" alt="Pacific Ocean views from Palacio Musical"><figcaption>Pacific Views</figcaption></figure>
-    <figure data-r="2"><img src="images/bedroom.jpeg" alt="Private en-suite at Palacio Musical"><figcaption>Private Suites</figcaption></figure>
-  </div>
-  <div class="villa-strip">
-    <div class="villa-strip-cell" data-r><img src="images/living-room.jpeg" alt="Living room with ocean view"></div>
-    <div class="villa-strip-cell" data-r="1"><img src="images/lounge-kitchen.jpeg" alt="Interior lounge and kitchen"></div>
-    <div class="villa-strip-cell" data-r="2"><img src="images/bar-dining.jpeg" alt="Modern bar and dining space"></div>
-    <div class="villa-strip-cell" data-r="3"><img src="images/exterior-night.jpeg" alt="Palacio Musical exterior at night"></div>
-  </div>
-</section>
-
-<!-- EQUIPMENT -->
-<section id="equipment">
-  <div class="equip-wrap">
-    <div class="equip-intro">
-      <div class="eyebrow kicker" data-r>03 &middot; Equipment</div>
-      <h2 data-r="1">Ready for<br>the session.</h2>
-      <p data-r="2">Everything your project needs is already here. Walk in, set up and create &mdash; without logistics getting in the way of the music.</p>
-      <a class="btn gold" href="#inquire" data-r="3">Request a session</a>
-    </div>
-    <div class="gear">
-      <div class="gear-item" data-r>
-        <div class="gear-n">01</div>
-        <h3>Recording</h3>
-        <p>Professional microphones, digital mixing and a flexible workflow for vocals, instruments and live sessions.</p>
-      </div>
-      <div class="gear-item" data-r="1">
-        <div class="gear-n">02</div>
-        <h3>Monitoring</h3>
-        <p>Large-format studio monitoring for production decisions, playback and collaborative listening.</p>
-      </div>
-      <div class="gear-item" data-r="2">
-        <div class="gear-n">03</div>
-        <h3>Instruments</h3>
-        <p>Drums, guitars, bass and keyboards available in an inspiring residential environment.</p>
-      </div>
-      <div class="gear-item" data-r="3">
-        <div class="gear-n">04</div>
-        <h3>Production</h3>
-        <p>A comfortable control area for songwriting, arranging, recording and mixing.</p>
-      </div>
-      <div class="gear-item" data-r="4">
-        <div class="gear-n">05</div>
-        <h3>In-House Engineer</h3>
-        <p>An experienced recording engineer is available on site to help with setup, tracking, session flow and technical support throughout your stay.</p>
-      </div>
+  <div class="hscroll-wrap" data-r="fade">
+    <div class="hscroll">
+      <div class="hscroll-item"><img src="images/night-estate.jpeg" alt="Palacio Musical illuminated at night"><span class="hscroll-label">The Estate</span></div>
+      <div class="hscroll-item"><img src="images/ocean-view.jpeg" alt="Pacific Ocean views from Palacio Musical"><span class="hscroll-label">Pacific Views</span></div>
+      <div class="hscroll-item"><img src="images/bedroom.jpeg" alt="Private en-suite at Palacio Musical"><span class="hscroll-label">Private Suites</span></div>
+      <div class="hscroll-item"><img src="images/living-room.jpeg" alt="Living room with ocean view"><span class="hscroll-label">Living Space</span></div>
+      <div class="hscroll-item"><img src="images/lounge-kitchen.jpeg" alt="Interior lounge and kitchen"><span class="hscroll-label">Kitchen Lounge</span></div>
+      <div class="hscroll-item"><img src="images/bar-dining.jpeg" alt="Modern bar and dining space"><span class="hscroll-label">Bar &amp; Dining</span></div>
+      <div class="hscroll-item"><img src="images/exterior-night.jpeg" alt="Palacio Musical exterior at night"><span class="hscroll-label">Exterior</span></div>
     </div>
   </div>
 </section>
 
-<!-- GALLERY -->
-<section id="gallery" style="background:var(--surface)">
-  <div class="gallery-top">
+<section id="equipment" class="equip-section">
+  <div class="equip-header">
+    <div class="eyebrow" data-r>The Equipment</div>
+    <h2 data-r="1">Ready for<br>the session.</h2>
+  </div>
+  <div class="equip-body">
+    <div class="equip-img-wrap" data-r="fade">
+      <img src="images/bass-detail.jpeg" alt="Bass guitar at Palacio Musical Studio">
+    </div>
+    <div class="equip-list">
+      <div class="eq-item" data-r>
+        <span class="eq-n">01</span>
+        <div><h3>Recording</h3><p>Professional microphones, digital mixing and a flexible workflow for vocals, instruments and live sessions.</p></div>
+      </div>
+      <div class="eq-item" data-r="1">
+        <span class="eq-n">02</span>
+        <div><h3>Monitoring</h3><p>Large-format studio monitoring for production decisions, playback and collaborative listening.</p></div>
+      </div>
+      <div class="eq-item" data-r="2">
+        <span class="eq-n">03</span>
+        <div><h3>Instruments</h3><p>Drums, guitars, bass and keyboards available in an inspiring residential environment.</p></div>
+      </div>
+      <div class="eq-item" data-r="3">
+        <span class="eq-n">04</span>
+        <div><h3>Production</h3><p>A comfortable control area for songwriting, arranging, recording and mixing.</p></div>
+      </div>
+      <div class="eq-item" data-r="4">
+        <span class="eq-n">05</span>
+        <div><h3>In-House Engineer</h3><p>An experienced recording engineer is available on site to help with setup, tracking, session flow and technical support throughout your stay.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" class="gallery-section">
+  <div class="gallery-hdr">
     <div>
-      <div class="eyebrow kicker" data-r>04 &middot; Gallery</div>
+      <div class="eyebrow" data-r>The Gallery</div>
       <h2 data-r="1">Inside Palacio<br>Musical Studio.</h2>
     </div>
-    <a href="#inquire" class="btn" data-r>Plan your session</a>
+    <a class="btn btn-outline" href="#inquire" data-r><span>Plan your session</span></a>
   </div>
-  <div class="gallery-mosaic">
-    <div class="gitem" data-r><img src="images/bass-detail.jpeg" alt="Bass guitar detail"></div>
-    <div class="gitem" data-r="1"><img src="images/guitars-bass.jpeg" alt="Guitars and bass"></div>
-    <div class="gitem" data-r="2"><img src="images/drum-kit.jpeg" alt="Drum kit"></div>
-    <div class="gitem" data-r="3"><img src="images/guitar-staircase.jpeg" alt="Guitar staircase display"></div>
-    <div class="gitem" data-r="4"><img src="images/microphone-gallery.jpeg" alt="Studio microphone"></div>
-    <div class="gitem" data-r><img src="images/studio-monitor-gallery.jpeg" alt="Studio monitor"></div>
+  <div class="gallery-grid" data-r="fade">
+    <div class="gi" data-src="images/bass-detail.jpeg" tabindex="0" role="button" aria-label="View bass guitar photo">
+      <img src="images/bass-detail.jpeg" alt="Bass guitar detail"><div class="gi-overlay">View</div>
+    </div>
+    <div class="gi" data-src="images/guitars-bass.jpeg" tabindex="0" role="button" aria-label="View guitars and bass photo">
+      <img src="images/guitars-bass.jpeg" alt="Guitars and bass wall"><div class="gi-overlay">View</div>
+    </div>
+    <div class="gi" data-src="images/drum-kit.jpeg" tabindex="0" role="button" aria-label="View drum kit photo">
+      <img src="images/drum-kit.jpeg" alt="DW drum kit"><div class="gi-overlay">View</div>
+    </div>
+    <div class="gi" data-src="images/guitar-staircase.jpeg" tabindex="0" role="button" aria-label="View guitar staircase photo">
+      <img src="images/guitar-staircase.jpeg" alt="Guitar staircase display"><div class="gi-overlay">View</div>
+    </div>
+    <div class="gi" data-src="images/microphone-gallery.jpeg" tabindex="0" role="button" aria-label="View microphone photo">
+      <img src="images/microphone-gallery.jpeg" alt="Studio microphone"><div class="gi-overlay">View</div>
+    </div>
+    <div class="gi" data-src="images/studio-monitor-gallery.jpeg" tabindex="0" role="button" aria-label="View studio monitor photo">
+      <img src="images/studio-monitor-gallery.jpeg" alt="Studio monitors"><div class="gi-overlay">View</div>
+    </div>
   </div>
 </section>
 
-<!-- CTA / INQUIRE -->
-<section id="inquire" class="cta">
-  <svg class="cta-icon" viewBox="0 0 120 150" role="img" aria-hidden="true">
-    <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M15 125V60C15 26 35 8 60 8s45 18 45 52v65"/><path d="M27 125V61c0-25 14-40 33-40s33 15 33 40v64"/>
-      <path d="M39 125V62c0-17 8-27 21-27s21 10 21 27v63"/><path d="M50 125V65c0-10 4-16 10-16s10 6 10 16v60"/>
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image viewer">
+  <button class="lb-close" id="lbClose" aria-label="Close">&#215;</button>
+  <button class="lb-prev" id="lbPrev" aria-label="Previous image">&#8249;</button>
+  <img class="lb-img" id="lbImg" src="" alt="">
+  <button class="lb-next" id="lbNext" aria-label="Next image">&#8250;</button>
+</div>
+
+<section id="inquire" class="cta-section">
+  <div class="cta-bg-wrap" id="ctaBgWrap">
+    <img class="cta-bg" src="images/night-estate.jpeg" alt="" loading="lazy">
+  </div>
+  <div class="cta-veil"></div>
+  <div class="cta-glow"></div>
+  <div class="cta-body">
+    <svg class="cta-mark" viewBox="0 0 120 150" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M15 125V60C15 26 35 8 60 8s45 18 45 52v65"/>
+      <path d="M27 125V61c0-25 14-40 33-40s33 15 33 40v64"/>
+      <path d="M39 125V62c0-17 8-27 21-27s21 10 21 27v63"/>
+      <path d="M50 125V65c0-10 4-16 10-16s10 6 10 16v60"/>
       <path d="M28 125h64"/><path d="M60 70v39"/>
-      <path d="M60 77c-6-8-12-10-18-6 7 1 11 5 13 11"/><path d="M60 77c6-8 12-10 18-6-7 1-11 5-13 11"/>
-      <path d="M60 83c-5-4-10-4-15 0 6 0 10 3 12 7"/><path d="M60 83c5-4 10-4 15 0-6 0-10 3-12 7"/>
+      <path d="M60 77c-6-8-12-10-18-6 7 1 11 5 13 11"/>
+      <path d="M60 77c6-8 12-10 18-6-7 1-11 5-13 11"/>
+      <path d="M60 83c-5-4-10-4-15 0 6 0 10 3 12 7"/>
+      <path d="M60 83c5-4 10-4 15 0-6 0-10 3-12 7"/>
       <path d="M52 109h16M47 116h26"/>
-    </g>
-  </svg>
-  <div class="kicker" data-r>Palacio Musical Studio &middot; Tambor, Costa Rica</div>
-  <h2 data-r="1">Bring your next project<br><em>somewhere unforgettable.</em></h2>
-  <p class="cta-sub" data-r="2">Limited availability <em>&middot;</em> By appointment <em>&middot;</em> 2025 &ndash; 2026</p>
-  <a class="btn gold" href="mailto:info@executivevacations.net?subject=Palacio%20Musical%20Studio%20Inquiry" data-r="3">Request availability</a>
+    </svg>
+    <div class="eyebrow" style="justify-content:center" data-r>Palacio Musical Studio &middot; Tambor, Costa Rica</div>
+    <h2 data-r="1">Bring your next project<br><em>somewhere unforgettable.</em></h2>
+    <p class="cta-meta" data-r="2">Limited availability <em>&middot;</em> By appointment <em>&middot;</em> 2025 &ndash; 2026</p>
+    <a class="btn btn-gold" href="mailto:info@executivevacations.net?subject=Palacio%20Musical%20Studio%20Inquiry" data-r="3"><span>Request availability</span></a>
+  </div>
 </section>
 
 </main>
 
 <footer>
-  <div class="foot-brand">
-    <svg class="palacio-symbol" viewBox="0 0 120 150" role="img" aria-hidden="true">
-      <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M15 125V60C15 26 35 8 60 8s45 18 45 52v65"/><path d="M27 125V61c0-25 14-40 33-40s33 15 33 40v64"/>
-        <path d="M39 125V62c0-17 8-27 21-27s21 10 21 27v63"/><path d="M50 125V65c0-10 4-16 10-16s10 6 10 16v60"/>
-        <path d="M28 125h64"/><path d="M60 70v39"/>
-        <path d="M60 77c-6-8-12-10-18-6 7 1 11 5 13 11"/><path d="M60 77c6-8 12-10 18-6-7 1-11 5-13 11"/>
-        <path d="M60 83c-5-4-10-4-15 0 6 0 10 3 12 7"/><path d="M60 83c5-4 10-4 15 0-6 0-10 3-12 7"/>
-        <path d="M52 109h16M47 116h26"/>
-      </g>
-    </svg>
-    <div><b>PALACIO MUSICAL</b><small>STUDIO</small></div>
+  <svg class="foot-svg" viewBox="0 0 120 150" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M15 125V60C15 26 35 8 60 8s45 18 45 52v65"/>
+    <path d="M27 125V61c0-25 14-40 33-40s33 15 33 40v64"/>
+    <path d="M39 125V62c0-17 8-27 21-27s21 10 21 27v63"/>
+    <path d="M50 125V65c0-10 4-16 10-16s10 6 10 16v60"/>
+    <path d="M28 125h64"/><path d="M60 70v39"/>
+    <path d="M60 77c-6-8-12-10-18-6 7 1 11 5 13 11"/>
+    <path d="M60 77c6-8 12-10 18-6-7 1-11 5-13 11"/>
+    <path d="M60 83c-5-4-10-4-15 0 6 0 10 3 12 7"/>
+    <path d="M60 83c5-4 10-4 15 0-6 0-10 3-12 7"/>
+    <path d="M52 109h16M47 116h26"/>
+  </svg>
+  <div class="foot-center">
+    <div class="foot-title">PALACIO MUSICAL STUDIO</div>
+    <a class="foot-email" href="mailto:info@executivevacations.net">info@executivevacations.net</a>
   </div>
   <div class="foot-right">
-    <div>Private Recording Retreat &middot; In-House Engineer &middot; Tambor, Costa Rica</div>
+    <div class="foot-coords">9&deg;48&prime;N &middot; 85&deg;00&prime;W</div>
+    <div>Tambor, Costa Rica</div>
     <div>&copy; 2025 Palacio Musical Studio</div>
   </div>
 </footer>
 
 <script>
-// Progress bar + sticky header
-const pb = document.getElementById('pb'), hdr = document.getElementById('hdr');
-window.addEventListener('scroll', () => {
-  pb.style.width = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100) + '%';
-  hdr.classList.toggle('scrolled', window.scrollY > 70);
-}, { passive: true });
+(function(){
 
-// Hero image slow-zoom on load
-const bg = document.getElementById('heroBg');
-if (bg.complete) bg.classList.add('loaded');
-else bg.addEventListener('load', () => bg.classList.add('loaded'));
+/* Preloader */
+var pre=document.getElementById("pre");
+var loaded=false,elapsed=false;
+function maybeHide(){
+  if(loaded&&elapsed){pre.classList.add("done");document.body.classList.add("ldd");}
+}
+window.addEventListener("load",function(){loaded=true;maybeHide();});
+setTimeout(function(){elapsed=true;maybeHide();},1800);
+setTimeout(function(){pre.classList.add("done");document.body.classList.add("ldd");},4200);
 
-// Scroll-reveal
-const obs = new IntersectionObserver(
-  (entries) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } }),
-  { threshold: 0.07, rootMargin: '0px 0px -44px 0px' }
-);
-document.querySelectorAll('[data-r]').forEach(el => obs.observe(el));
+/* Custom cursor */
+var dot=document.getElementById("curDot");
+var ring=document.getElementById("curRing");
+if(dot&&ring&&window.matchMedia("(pointer:fine)").matches){
+  var mx=0,my=0,rx=0,ry=0;
+  document.addEventListener("mousemove",function(e){
+    mx=e.clientX;my=e.clientY;
+    dot.style.left=mx+"px";dot.style.top=my+"px";
+  });
+  document.querySelectorAll("a,button,.gi,.rcard,.hscroll-item").forEach(function(el){
+    el.addEventListener("mouseenter",function(){ring.classList.add("hov");});
+    el.addEventListener("mouseleave",function(){ring.classList.remove("hov");});
+  });
+  (function loop(){
+    rx+=(mx-rx)*0.1;ry+=(my-ry)*0.1;
+    ring.style.left=rx+"px";ring.style.top=ry+"px";
+    requestAnimationFrame(loop);
+  })();
+}
+
+/* Progress bar + sticky header */
+var pgbar=document.getElementById("pgbar");
+var hdr=document.getElementById("hdr");
+window.addEventListener("scroll",function(){
+  var s=window.scrollY;
+  var max=document.documentElement.scrollHeight-window.innerHeight;
+  if(max>0)pgbar.style.width=(s/max*100)+"%";
+  hdr.classList.toggle("scrolled",s>60);
+},{passive:true});
+
+/* Hero image zoom-in */
+var bg=document.getElementById("heroBg");
+if(bg){if(bg.complete)bg.classList.add("ldd");else bg.addEventListener("load",function(){bg.classList.add("ldd");});}
+
+/* Parallax */
+var heroBgWrap=document.getElementById("heroBgWrap");
+var ctaBgWrap=document.getElementById("ctaBgWrap");
+var ticking=false;
+function doParallax(){
+  var sy=window.scrollY;
+  if(heroBgWrap)heroBgWrap.style.transform="translateY("+sy*0.22+"px)";
+  if(ctaBgWrap){
+    var r=ctaBgWrap.parentElement.getBoundingClientRect();
+    ctaBgWrap.style.transform="translateY("+(-r.top*0.18)+"px)";
+  }
+  ticking=false;
+}
+window.addEventListener("scroll",function(){if(!ticking){requestAnimationFrame(doParallax);ticking=true;}},{passive:true});
+
+/* Scroll reveal */
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add("on");obs.unobserve(e.target);}
+  });
+},{threshold:0.07,rootMargin:"0px 0px -40px 0px"});
+document.querySelectorAll("[data-r]").forEach(function(el){obs.observe(el);});
+
+/* Animated counters */
+function animCount(el,target,dur){
+  var start=null;
+  function step(ts){
+    if(!start)start=ts;
+    var p=Math.min((ts-start)/dur,1);
+    var ease=1-Math.pow(1-p,3);
+    var v=Math.round(ease*target);
+    el.textContent=target>=1000?v.toLocaleString("en-US"):v;
+    if(p<1)requestAnimationFrame(step);
+    else el.textContent=target>=1000?target.toLocaleString("en-US"):target;
+  }
+  requestAnimationFrame(step);
+}
+var cobs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      animCount(e.target,parseInt(e.target.dataset.count,10),1600);
+      cobs.unobserve(e.target);
+    }
+  });
+},{threshold:0.3});
+document.querySelectorAll("[data-count]").forEach(function(el){cobs.observe(el);});
+
+/* Gallery lightbox */
+var lb=document.getElementById("lightbox");
+var lbImg=document.getElementById("lbImg");
+var lbClose=document.getElementById("lbClose");
+var lbPrev=document.getElementById("lbPrev");
+var lbNext=document.getElementById("lbNext");
+var gItems=Array.from(document.querySelectorAll(".gi[data-src]"));
+var cur=0;
+function open(i){
+  cur=i;
+  lbImg.src=gItems[i].dataset.src;
+  lbImg.alt=gItems[i].querySelector("img").alt;
+  lb.classList.add("open");lb.removeAttribute("aria-hidden");
+  document.body.style.overflow="hidden";
+}
+function close(){
+  lb.classList.remove("open");lb.setAttribute("aria-hidden","true");
+  document.body.style.overflow="";
+}
+gItems.forEach(function(gi,i){
+  gi.addEventListener("click",function(){open(i);});
+  gi.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" ")open(i);});
+});
+lbClose.addEventListener("click",close);
+lbNext.addEventListener("click",function(){open((cur+1)%gItems.length);});
+lbPrev.addEventListener("click",function(){open((cur-1+gItems.length)%gItems.length);});
+lb.addEventListener("click",function(e){if(e.target===lb)close();});
+document.addEventListener("keydown",function(e){
+  if(!lb.classList.contains("open"))return;
+  if(e.key==="Escape")close();
+  if(e.key==="ArrowRight")open((cur+1)%gItems.length);
+  if(e.key==="ArrowLeft")open((cur-1+gItems.length)%gItems.length);
+});
+
+})();
 </script>
 </body>
 </html>
