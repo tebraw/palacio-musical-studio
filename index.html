@@ -204,9 +204,10 @@ body.ldd .scroll-cue{opacity:1}
 @keyframes tkr{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 
 /* ── Studio ── */
-#studio{position:relative;overflow:hidden;background:var(--surface)}
+#studio{position:relative;overflow:hidden;background:var(--surface);padding:0}
 .sec-deco{position:absolute;right:-1vw;top:50%;transform:translateY(-50%);font-family:var(--serif);font-size:clamp(140px,24vw,360px);font-weight:600;color:rgba(255,255,255,.014);line-height:1;pointer-events:none;user-select:none;letter-spacing:-.06em}
-.studio-g{display:grid;grid-template-columns:1fr 1.3fr;gap:7vw;align-items:start}
+.studio-g{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;min-height:720px}
+.studio-l{padding:140px 7vw;display:flex;flex-direction:column;justify-content:center}
 .studio-l h2{margin-top:22px}
 .sstats{margin-top:54px;border-top:1px solid var(--line2)}
 .ss{display:flex;align-items:baseline;gap:12px;padding:24px 0;border-bottom:1px solid var(--line2);transition:padding-left .35s var(--ease-out)}
@@ -215,13 +216,9 @@ body.ldd .scroll-cue{opacity:1}
 .ss:hover .ss-n{color:var(--gold)}
 .ss-suf{font-family:var(--sans);font-size:10px;letter-spacing:.1em;color:var(--gold);margin-right:4px}
 .ss-l{font-family:var(--sans);font-size:8.5px;text-transform:uppercase;letter-spacing:.24em;color:var(--muted)}
-.studio-r p+p{margin-top:22px}
-.studio-img{margin-top:50px;overflow:hidden}
-.studio-img img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform 1s var(--ease)}
-.studio-img:hover img{transform:scale(1.04)}
-.studio-banner{margin-top:80px;overflow:hidden;position:relative}
-.studio-banner img{width:100%;aspect-ratio:21/9;object-fit:cover;display:block;transition:transform 1.4s var(--ease)}
-.studio-banner:hover img{transform:scale(1.03)}
+.studio-r{position:relative;overflow:hidden}
+.studio-r img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease)}
+.studio-r:hover img{transform:scale(1.04)}
 
 /* ── Manifesto ── */
 .manifesto{padding:90px 7vw;border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);position:relative;overflow:hidden}
@@ -356,7 +353,8 @@ footer{padding:48px 7vw;border-top:1px solid var(--line2);display:grid;grid-temp
   .hero-title{font-size:clamp(66px,14vw,108px)}
   .hw:nth-child(2){padding-left:0}
   .studio-g{display:block}
-  .studio-l{margin-bottom:48px}
+  .studio-l{padding:86px 24px 60px}
+  .studio-r{height:60vw;min-height:320px}
   .sec-deco{font-size:clamp(90px,20vw,160px)}
   .manifesto,.mf-text{padding:60px 24px;font-size:clamp(18px,4.5vw,26px)}
   .manifesto{padding:60px 24px}
@@ -541,15 +539,8 @@ footer{padding:48px 7vw;border-top:1px solid var(--line2);display:grid;grid-temp
       </div>
     </div>
     <div class="studio-r">
-      <p data-r>Palacio Musical combines a warm, inspiring recording environment with the privacy of an entire villa. Artists move naturally between writing sessions, rehearsals, recording and downtime &mdash; without ever leaving the property.</p>
-      <p data-r="1">From vocal performances and songwriting demos to full band sessions, the studio is designed to keep the creative process immediate, comfortable and focused.</p>
-      <div class="studio-img" data-r="2">
-        <img src="images/microphone-split.jpeg" alt="Professional condenser microphone at Palacio Musical Studio">
-      </div>
+      <img src="images/night-estate.jpeg" alt="Palacio Musical estate illuminated at night, Tambor Costa Rica" loading="lazy">
     </div>
-  </div>
-  <div class="studio-banner" data-r="3">
-    <img src="images/night-estate.jpeg" alt="Palacio Musical estate illuminated at night, Tambor Costa Rica" loading="lazy">
   </div>
 </section>
 
