@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -10,11 +10,11 @@
 <meta property="og:description" content="A private recording retreat on the Costa Rican Pacific coast. 12,500 sq ft, 7 en-suites, whale watching deck, Tiki Bar and direct beach access &mdash; with a fully equipped recording studio.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Palacio Musical Studio">
-<meta property="og:image" content="images/studiowide.png">
+<meta property="og:image" content="images/Studio/studio-01.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Palacio Musical Studio &mdash; Stay. Create. Record.">
 <meta name="twitter:description" content="12,500 sq ft beachfront villa with professional recording studio in Tambor, Costa Rica.">
-<link rel="preload" as="image" href="images/studiowide.png">
+<link rel="preload" as="image" href="images/Studio/studio-01.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
@@ -39,7 +39,7 @@ img{display:block;width:100%}
 a{color:inherit;text-decoration:none}
 button{font-family:var(--sans);cursor:pointer}
 
-/* ── Grain ── */
+/* â”€â”€ Grain â”€â”€ */
 body::after{content:"";position:fixed;inset:-150px;width:calc(100% + 300px);height:calc(100% + 300px);
   background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
   opacity:.022;pointer-events:none;z-index:9000;animation:grain 9s steps(12) infinite}
@@ -51,7 +51,7 @@ body::after{content:"";position:fixed;inset:-150px;width:calc(100% + 300px);heig
   80%{transform:translate(4%,32%)}90%{transform:translate(-9%,8%)}
 }
 
-/* ── Preloader ── */
+/* â”€â”€ Preloader â”€â”€ */
 .pre{position:fixed;inset:0;background:var(--bg);z-index:9999;display:flex;align-items:center;justify-content:center;transition:opacity 1s .15s var(--ease-expo)}
 .pre.done{opacity:0;pointer-events:none}
 .pre-inner{text-align:center}
@@ -65,7 +65,7 @@ body::after{content:"";position:fixed;inset:-150px;width:calc(100% + 300px);heig
 @keyframes pWord{to{transform:translateY(0)}}
 @keyframes pFade{to{opacity:1}}
 
-/* ── Cursor ── */
+/* â”€â”€ Cursor â”€â”€ */
 @media(pointer:fine){
   *{cursor:none!important}
   .c-dot{position:fixed;width:5px;height:5px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9998;margin:-2.5px 0 0 -2.5px;transition:transform .2s,opacity .3s}
@@ -74,10 +74,10 @@ body::after{content:"";position:fixed;inset:-150px;width:calc(100% + 300px);heig
   .c-ring.d{width:16px;height:16px;margin:-8px 0 0 -8px;border-color:var(--gold3);background:rgba(196,146,46,.08)}
 }
 
-/* ── Progress bar ── */
+/* â”€â”€ Progress bar â”€â”€ */
 .pgbar{position:fixed;top:0;left:0;height:1px;width:0;background:linear-gradient(90deg,var(--gold),var(--gold3));z-index:201;transition:width .12s linear}
 
-/* ── Header ── */
+/* â”€â”€ Header â”€â”€ */
 header{position:fixed;inset:0 0 auto;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:28px 7vw;transition:padding .55s var(--ease),background .55s,border-color .55s}
 header.scrolled{padding:15px 7vw;background:rgba(5,4,3,.94);backdrop-filter:blur(32px);-webkit-backdrop-filter:blur(32px);border-bottom:1px solid var(--line2)}
 .brand{display:flex;align-items:center;gap:12px}
@@ -94,14 +94,14 @@ nav a:hover::after{width:100%}
 .nav-cta::after{display:none!important}
 .nav-cta:hover{background:var(--gold);border-color:var(--gold);color:var(--bg)!important}
 
-/* ── Hamburger ── */
+/* â”€â”€ Hamburger â”€â”€ */
 .ham{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:5px;z-index:102;position:relative}
 .ham span{display:block;width:22px;height:1px;background:var(--ink);transition:transform .45s var(--ease),opacity .3s,width .35s}
 .ham.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
 .ham.open span:nth-child(2){opacity:0;width:12px}
 .ham.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
 
-/* ── Mobile nav overlay ── */
+/* â”€â”€ Mobile nav overlay â”€â”€ */
 .mob{position:fixed;inset:0;z-index:99;background:var(--bg2);
   display:flex;flex-direction:column;justify-content:center;padding:0 10vw;
   opacity:0;pointer-events:none;transform:translateY(-14px);
@@ -117,7 +117,7 @@ nav a:hover::after{width:100%}
   font-family:var(--sans);font-size:8.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted2);line-height:2.3}
 .mob-coord{color:var(--gold);opacity:.5}
 
-/* ── Scroll reveal ── */
+/* â”€â”€ Scroll reveal â”€â”€ */
 [data-r]{opacity:0;transform:translateY(44px);transition:opacity 1.1s var(--ease-out),transform 1.1s var(--ease-out)}
 [data-r].on{opacity:1;transform:none}
 [data-r="1"]{transition-delay:.14s}[data-r="2"]{transition-delay:.28s}
@@ -127,7 +127,7 @@ nav a:hover::after{width:100%}
 [data-r="left"]{transform:translateX(-36px);transition:opacity 1.1s var(--ease-out),transform 1.1s var(--ease-out)}
 [data-r="left"].on{transform:none;opacity:1}
 
-/* ── Typography ── */
+/* â”€â”€ Typography â”€â”€ */
 .eyebrow{font-family:var(--sans);font-weight:400;font-size:9px;text-transform:uppercase;letter-spacing:.38em;color:var(--gold);display:inline-flex;align-items:center;gap:14px}
 .eyebrow::after{content:"";display:block;width:26px;height:1px;background:var(--gold);opacity:.45;flex-shrink:0}
 h2{font-family:var(--serif);font-weight:400;font-size:clamp(40px,5.8vw,80px);line-height:.94;letter-spacing:-.028em;color:var(--ink);margin-top:22px}
@@ -136,7 +136,7 @@ h3{font-family:var(--serif);font-weight:500;font-size:clamp(18px,2vw,24px);line-
 p{font-family:var(--sans);font-weight:300;color:var(--muted);line-height:1.95;font-size:14.5px}
 section{padding:140px 7vw}
 
-/* ── Buttons ── */
+/* â”€â”€ Buttons â”€â”€ */
 .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;
   font-family:var(--sans);font-weight:400;font-size:10px;text-transform:uppercase;letter-spacing:.2em;
   position:relative;overflow:hidden;transition:transform .5s var(--ease-spring),border-color .35s,background .35s,color .35s}
@@ -150,7 +150,7 @@ section{padding:140px 7vw}
 .btn-gold::before{background:var(--gold3)}
 .btn-gold:hover{border-color:var(--gold3);color:var(--bg)}
 
-/* ── Hero ── */
+/* â”€â”€ Hero â”€â”€ */
 .hero{min-height:100svh;position:relative;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:var(--bg)}
 .hero-bg-w{position:absolute;inset:0;overflow:hidden}
 .hero-bg{width:100%;height:100%;object-fit:cover;transform:scale(1.09);transition:transform 20s var(--ease)}
@@ -191,7 +191,7 @@ body.ldd .scroll-cue{opacity:1}
 .scroll-line{width:1px;height:54px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrl 2.5s ease-in-out infinite}
 @keyframes scrl{0%,100%{opacity:1;transform:scaleY(1) translateY(0)}55%{opacity:.15;transform:scaleY(.25) translateY(18px)}}
 
-/* ── Ticker ── */
+/* â”€â”€ Ticker â”€â”€ */
 .ticker-w{overflow:hidden;background:var(--surface2);border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);padding:9px 0;user-select:none}
 .ticker-row{display:flex;width:max-content}
 .tk-f{animation:tkf 38s linear infinite}
@@ -203,7 +203,7 @@ body.ldd .scroll-cue{opacity:1}
 @keyframes tkf{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes tkr{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 
-/* ── Studio ── */
+/* â”€â”€ Studio â”€â”€ */
 #studio{position:relative;overflow:hidden;background:var(--surface);padding:0}
 .sec-deco{position:absolute;right:-1vw;top:50%;transform:translateY(-50%);font-family:var(--serif);font-size:clamp(140px,24vw,360px);font-weight:600;color:rgba(255,255,255,.014);line-height:1;pointer-events:none;user-select:none;letter-spacing:-.06em}
 .studio-g{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;min-height:720px}
@@ -220,14 +220,14 @@ body.ldd .scroll-cue{opacity:1}
 .studio-r img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease)}
 .studio-r:hover img{transform:scale(1.04)}
 
-/* ── Manifesto ── */
+/* â”€â”€ Manifesto â”€â”€ */
 .manifesto{padding:90px 7vw;border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);position:relative;overflow:hidden}
 .manifesto::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 75% 110% at 50% 50%,rgba(196,146,46,.042) 0%,transparent 70%);pointer-events:none}
 .mf-inner{max-width:900px;margin:0 auto;text-align:center}
 .mf-mark{display:block;font-family:var(--serif);font-size:88px;line-height:.4;color:var(--gold);opacity:.16;text-align:center;margin-bottom:22px}
 .mf-text{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(24px,3.2vw,50px);line-height:1.35;letter-spacing:-.015em;color:var(--ink2)}
 
-/* ── Retreat ── */
+/* â”€â”€ Retreat â”€â”€ */
 .retreat-hd{max-width:740px;margin-bottom:72px}
 .retreat-hd h2{margin-top:22px}
 .retreat-hd p{margin-top:24px}
@@ -244,7 +244,7 @@ body.ldd .scroll-cue{opacity:1}
 .rcard-tag{font-family:var(--sans);font-size:8px;text-transform:uppercase;letter-spacing:.34em;color:var(--gold);display:block;margin-bottom:10px}
 .rcard-body p{margin-top:9px;font-size:12.5px;color:rgba(240,228,208,.55);max-width:330px}
 
-/* ── Quote ── */
+/* â”€â”€ Quote â”€â”€ */
 .quote-sec{position:relative;padding:160px 7vw;overflow:hidden;display:flex;align-items:center}
 .q-bg-w{position:absolute;inset:0}
 .q-bg-w img{width:100%;height:100%;object-fit:cover;filter:saturate(.45) brightness(.65)}
@@ -257,7 +257,7 @@ body.ldd .scroll-cue{opacity:1}
 .q-cite{display:block;font-family:var(--sans);font-style:normal;font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin-top:42px}
 .q-cite::before{content:"";display:inline-block;width:22px;height:1px;background:var(--muted);vertical-align:middle;margin-right:14px}
 
-/* ── Villa ── */
+/* â”€â”€ Villa â”€â”€ */
 .villa-sec{background:var(--surface)}
 .villa-hd{display:grid;grid-template-columns:1fr 1.5fr;gap:7vw;align-items:start;margin-bottom:62px}
 .villa-hd h2{margin-top:22px}
@@ -277,7 +277,7 @@ body.ldd .scroll-cue{opacity:1}
 .hscroll-item:hover img{transform:scale(1.04)}
 .hslabel{position:absolute;bottom:16px;left:18px;font-family:var(--sans);font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);padding:6px 12px;background:rgba(5,4,3,.76);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--line2)}
 
-/* ── Equipment ── */
+/* â”€â”€ Equipment â”€â”€ */
 .eq-sec{background:var(--bg2)}
 .eq-hd{max-width:640px;margin-bottom:74px}
 .eq-hd h2{margin-top:22px}
@@ -294,7 +294,7 @@ body.ldd .scroll-cue{opacity:1}
 .eq-item h3{margin-bottom:10px}
 .eq-item p{font-size:14px}
 
-/* ── Gallery ── */
+/* â”€â”€ Gallery â”€â”€ */
 .gal-sec{padding-bottom:0;background:var(--surface)}
 .gal-hdr{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:24px;margin-bottom:52px}
 .gal-hdr h2{margin-top:18px}
@@ -307,7 +307,7 @@ body.ldd .scroll-cue{opacity:1}
 .gi-ov{position:absolute;inset:0;background:rgba(5,4,3,.35);opacity:0;display:flex;align-items:center;justify-content:center;transition:opacity .4s;font-family:var(--sans);font-size:8.5px;letter-spacing:.42em;text-transform:uppercase;color:var(--ink)}
 .gi:hover .gi-ov{opacity:1}
 
-/* ── Lightbox ── */
+/* â”€â”€ Lightbox â”€â”€ */
 .lb{position:fixed;inset:0;background:rgba(5,4,3,.97);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);z-index:9995;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .45s}
 .lb.open{opacity:1;pointer-events:all}
 .lb-img{max-width:90vw;max-height:90vh;width:auto;height:auto;transform:scale(.93);transition:transform .6s var(--ease-spring)}
@@ -318,7 +318,7 @@ body.ldd .scroll-cue{opacity:1}
 .lb-nav:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.32)}
 .lb-prev{left:32px}.lb-next{right:32px}
 
-/* ── CTA ── */
+/* â”€â”€ CTA â”€â”€ */
 .cta-sec{padding:0;min-height:100svh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .cta-bg-w{position:absolute;inset:0;overflow:hidden}
 .cta-bg{width:100%;height:100%;object-fit:cover}
@@ -330,7 +330,7 @@ body.ldd .scroll-cue{opacity:1}
 .cta-meta{font-family:var(--sans);font-weight:300;font-size:9px;text-transform:uppercase;letter-spacing:.32em;color:var(--muted2);margin:30px 0 54px}
 .cta-meta em{color:var(--gold);font-style:normal;opacity:.5;margin:0 14px}
 
-/* ── Footer ── */
+/* â”€â”€ Footer â”€â”€ */
 footer{padding:48px 7vw;border-top:1px solid var(--line2);display:grid;grid-template-columns:40px 1fr auto;align-items:center;gap:26px}
 .foot-svg{width:40px;color:var(--gold)}
 .foot-mid{text-align:center}
@@ -340,7 +340,7 @@ footer{padding:48px 7vw;border-top:1px solid var(--line2);display:grid;grid-temp
 .foot-r{text-align:right;font-family:var(--sans);font-weight:300;font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted2);line-height:2.4}
 .foot-coord{color:var(--gold);opacity:.5}
 
-/* ── Mobile ── */
+/* â”€â”€ Mobile â”€â”€ */
 @media(max-width:960px){
   section{padding:86px 24px}
   header{padding:18px 24px}header.scrolled{padding:14px 24px}
@@ -446,10 +446,10 @@ footer{padding:48px 7vw;border-top:1px solid var(--line2);display:grid;grid-temp
 
 <main id="top">
 
-<!-- ══ HERO ═══════════════════════════════════════════════════════════════ -->
+<!-- â•â• HERO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section class="hero">
   <div class="hero-bg-w" id="heroBgW">
-    <img class="hero-bg" id="heroBg" src="images/studiowide.png" alt="Palacio Musical beachfront villa at night, Tambor Costa Rica" loading="eager">
+    <img class="hero-bg" id="heroBg" src="images/Studio/studio-01.png" alt="Palacio Musical beachfront villa at night, Tambor Costa Rica" loading="eager">
   </div>
   <div class="hero-veil"></div>
   <div class="film-bar film-bar-top" aria-hidden="true">
@@ -483,7 +483,7 @@ footer{padding:48px 7vw;border-top:1px solid var(--line2);display:grid;grid-temp
   </div>
 </section>
 
-<!-- ══ TICKER ═════════════════════════════════════════════════════════════ -->
+<!-- â•â• TICKER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <div class="ticker-w" aria-hidden="true">
   <div class="ticker-row tk-f">
     <span class="ti">Tambor, Costa Rica<span class="ti-sep">&middot;</span></span>
@@ -525,7 +525,7 @@ footer{padding:48px 7vw;border-top:1px solid var(--line2);display:grid;grid-temp
   </div>
 </div>
 
-<!-- ══ STUDIO ══════════════════════════════════════════════════════════════ -->
+<!-- â•â• STUDIO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section id="studio">
   <div class="sec-deco" aria-hidden="true">01</div>
   <div class="studio-g">
@@ -539,12 +539,12 @@ footer{padding:48px 7vw;border-top:1px solid var(--line2);display:grid;grid-temp
       </div>
     </div>
     <div class="studio-r">
-      <img src="images/night-estate.jpeg" alt="Palacio Musical estate illuminated at night, Tambor Costa Rica" loading="lazy">
+      <img src="images/Villa/villa-02.png" alt="Palacio Musical estate at night, Tambor Costa Rica" loading="lazy">
     </div>
   </div>
 </section>
 
-<!-- ══ MANIFESTO ═══════════════════════════════════════════════════════════ -->
+<!-- â•â• MANIFESTO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <div class="manifesto">
   <div class="mf-inner">
     <span class="mf-mark" aria-hidden="true">&ldquo;</span>
@@ -552,7 +552,7 @@ footer{padding:48px 7vw;border-top:1px solid var(--line2);display:grid;grid-temp
   </div>
 </div>
 
-<!-- ══ RETREAT ══════════════════════════════════════════════════════════════ -->
+<!-- â•â• RETREAT â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section id="retreat">
   <div class="retreat-hd">
     <div class="eyebrow" data-r>The Retreat</div>
@@ -561,7 +561,7 @@ footer{padding:48px 7vw;border-top:1px solid var(--line2);display:grid;grid-temp
   </div>
   <div class="r-cards">
     <div class="rcard rcard-main" data-r>
-      <img src="images/guitars-card.jpeg" alt="Guitars at Palacio Musical Studio">
+      <img src="images/Gear/gear-01.png" alt="Guitars at Palacio Musical Studio">
       <div class="rcard-ov"></div>
       <div class="rcard-body">
         <span class="rcard-tag">Live together</span>
@@ -571,7 +571,7 @@ footer{padding:48px 7vw;border-top:1px solid var(--line2);display:grid;grid-temp
     </div>
     <div class="r-col">
       <div class="rcard rcard-sub" data-r="1">
-        <img src="images/drums-card.jpeg" alt="DW drum kit at Palacio Musical">
+        <img src="images/Gear/gear-02.png" alt="DW drum kit at Palacio Musical">
         <div class="rcard-ov"></div>
         <div class="rcard-body">
           <span class="rcard-tag">Play together</span>
@@ -579,7 +579,7 @@ footer{padding:48px 7vw;border-top:1px solid var(--line2);display:grid;grid-temp
         </div>
       </div>
       <div class="rcard rcard-sub" data-r="2">
-        <img src="images/monitor-card.jpeg" alt="Studio monitor at Palacio Musical">
+        <img src="images/Gear/gear-03.png" alt="Studio monitor at Palacio Musical">
         <div class="rcard-ov"></div>
         <div class="rcard-body">
           <span class="rcard-tag">Listen closely</span>
@@ -590,10 +590,10 @@ footer{padding:48px 7vw;border-top:1px solid var(--line2);display:grid;grid-temp
   </div>
 </section>
 
-<!-- ══ QUOTE ════════════════════════════════════════════════════════════════ -->
+<!-- â•â• QUOTE â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <div class="quote-sec">
   <div class="q-bg-w">
-    <img src="images/ocean-view.jpeg" alt="" aria-hidden="true">
+    <img src="images/Villa/villa-03.png" alt="" aria-hidden="true">
   </div>
   <div class="q-veil"></div>
   <div class="q-accent"></div>
@@ -604,7 +604,7 @@ footer{padding:48px 7vw;border-top:1px solid var(--line2);display:grid;grid-temp
   </div>
 </div>
 
-<!-- ══ VILLA ════════════════════════════════════════════════════════════════ -->
+<!-- â•â• VILLA â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section id="villa" class="villa-sec">
   <div class="villa-hd">
     <div class="villa-l">
@@ -632,18 +632,18 @@ footer{padding:48px 7vw;border-top:1px solid var(--line2);display:grid;grid-temp
   </div>
   <div class="hscroll-w" id="hscrollW" data-r="fade">
     <div class="hscroll" id="hscroll">
-      <div class="hscroll-item"><img src="images/night-estate.jpeg" alt="Palacio Musical illuminated at night"><span class="hslabel">The Estate</span></div>
-      <div class="hscroll-item"><img src="images/ocean-view.jpeg" alt="Pacific Ocean views from Palacio Musical"><span class="hslabel">Pacific Views</span></div>
-      <div class="hscroll-item"><img src="images/bedroom.jpeg" alt="Private en-suite at Palacio Musical"><span class="hslabel">Private Suites</span></div>
-      <div class="hscroll-item"><img src="images/living-room.jpeg" alt="Living room with ocean view"><span class="hslabel">Living Space</span></div>
-      <div class="hscroll-item"><img src="images/lounge-kitchen.jpeg" alt="Interior lounge and kitchen"><span class="hslabel">Kitchen Lounge</span></div>
-      <div class="hscroll-item"><img src="images/bar-dining.jpeg" alt="Modern bar and dining space"><span class="hslabel">Bar &amp; Dining</span></div>
-      <div class="hscroll-item"><img src="images/exterior-night.jpeg" alt="Palacio Musical exterior at night"><span class="hslabel">Exterior</span></div>
+      <div class="hscroll-item"><img src="images/Villa/villa-04.png" alt="Palacio Musical illuminated at night"><span class="hslabel">The Estate</span></div>
+      <div class="hscroll-item"><img src="images/Villa/villa-03.png" alt="Pacific Ocean views from Palacio Musical"><span class="hslabel">Pacific Views</span></div>
+      <div class="hscroll-item"><img src="images/Villa/villa-05.png" alt="Private en-suite at Palacio Musical"><span class="hslabel">Private Suites</span></div>
+      <div class="hscroll-item"><img src="images/Villa/villa-06.png" alt="Living room with ocean view"><span class="hslabel">Living Space</span></div>
+      <div class="hscroll-item"><img src="images/Villa/villa-07.png" alt="Interior lounge and kitchen"><span class="hslabel">Kitchen Lounge</span></div>
+      <div class="hscroll-item"><img src="images/Villa/villa-08.png" alt="Modern bar and dining space"><span class="hslabel">Bar &amp; Dining</span></div>
+      <div class="hscroll-item"><img src="images/Villa/villa-09.png" alt="Palacio Musical exterior at night"><span class="hslabel">Exterior</span></div>
     </div>
   </div>
 </section>
 
-<!-- ══ EQUIPMENT ══════════════════════════════════════════════════════════ -->
+<!-- â•â• EQUIPMENT â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section id="equipment" class="eq-sec">
   <div class="eq-hd">
     <div class="eyebrow" data-r>The Equipment</div>
@@ -651,7 +651,7 @@ footer{padding:48px 7vw;border-top:1px solid var(--line2);display:grid;grid-temp
   </div>
   <div class="eq-body">
     <div class="eq-img-w" data-r="fade">
-      <img src="images/bass-detail.jpeg" alt="Bass guitar at Palacio Musical Studio">
+      <img src="images/Gear/gear-04.png" alt="Bass guitar at Palacio Musical Studio">
     </div>
     <div class="eq-list">
       <div class="eq-item" data-r>
@@ -678,7 +678,7 @@ footer{padding:48px 7vw;border-top:1px solid var(--line2);display:grid;grid-temp
   </div>
 </section>
 
-<!-- ══ GALLERY ═════════════════════════════════════════════════════════════ -->
+<!-- â•â• GALLERY â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section id="gallery" class="gal-sec">
   <div class="gal-hdr">
     <div>
@@ -688,23 +688,23 @@ footer{padding:48px 7vw;border-top:1px solid var(--line2);display:grid;grid-temp
     <a class="btn btn-outline" href="#inquire" data-r><span>Plan your session</span></a>
   </div>
   <div class="gal-grid" data-r="fade">
-    <div class="gi" data-src="images/bass-detail.jpeg" tabindex="0" role="button" aria-label="View bass guitar photo">
-      <img src="images/bass-detail.jpeg" alt="Bass guitar detail"><div class="gi-ov">View</div>
+    <div class="gi" data-src="images/Gear/gear-04.png" tabindex="0" role="button" aria-label="View bass guitar photo">
+      <img src="images/Gear/gear-04.png" alt="Bass guitar detail"><div class="gi-ov">View</div>
     </div>
-    <div class="gi" data-src="images/guitars-bass.jpeg" tabindex="0" role="button" aria-label="View guitars photo">
-      <img src="images/guitars-bass.jpeg" alt="Guitars and bass wall"><div class="gi-ov">View</div>
+    <div class="gi" data-src="images/Gear/gear-05.png" tabindex="0" role="button" aria-label="View guitars photo">
+      <img src="images/Gear/gear-05.png" alt="Guitars and bass wall"><div class="gi-ov">View</div>
     </div>
-    <div class="gi" data-src="images/drum-kit.jpeg" tabindex="0" role="button" aria-label="View drum kit photo">
-      <img src="images/drum-kit.jpeg" alt="DW drum kit"><div class="gi-ov">View</div>
+    <div class="gi" data-src="images/Gear/gear-06.png" tabindex="0" role="button" aria-label="View drum kit photo">
+      <img src="images/Gear/gear-06.png" alt="DW drum kit"><div class="gi-ov">View</div>
     </div>
-    <div class="gi" data-src="images/guitar-staircase.jpeg" tabindex="0" role="button" aria-label="View guitar staircase photo">
-      <img src="images/guitar-staircase.jpeg" alt="Guitar staircase display"><div class="gi-ov">View</div>
+    <div class="gi" data-src="images/Studio/studio-02.png" tabindex="0" role="button" aria-label="View guitar staircase photo">
+      <img src="images/Studio/studio-02.png" alt="Guitar staircase display"><div class="gi-ov">View</div>
     </div>
-    <div class="gi" data-src="images/microphone-gallery.jpeg" tabindex="0" role="button" aria-label="View microphone photo">
-      <img src="images/microphone-gallery.jpeg" alt="Studio microphone"><div class="gi-ov">View</div>
+    <div class="gi" data-src="images/Studio/studio-03.png" tabindex="0" role="button" aria-label="View microphone photo">
+      <img src="images/Studio/studio-03.png" alt="Studio microphone"><div class="gi-ov">View</div>
     </div>
-    <div class="gi" data-src="images/studio-monitor-gallery.jpeg" tabindex="0" role="button" aria-label="View studio monitors photo">
-      <img src="images/studio-monitor-gallery.jpeg" alt="Studio monitors"><div class="gi-ov">View</div>
+    <div class="gi" data-src="images/Studio/studio-04.png" tabindex="0" role="button" aria-label="View studio monitors photo">
+      <img src="images/Studio/studio-04.png" alt="Studio monitors"><div class="gi-ov">View</div>
     </div>
   </div>
 </section>
@@ -717,10 +717,10 @@ footer{padding:48px 7vw;border-top:1px solid var(--line2);display:grid;grid-temp
   <button class="lb-nav lb-next" id="lbNext" aria-label="Next">&#8250;</button>
 </div>
 
-<!-- ══ CTA ══════════════════════════════════════════════════════════════════ -->
+<!-- â•â• CTA â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 <section id="inquire" class="cta-sec">
   <div class="cta-bg-w" id="ctaBgW">
-    <img class="cta-bg" src="images/night-estate.jpeg" alt="" loading="lazy">
+    <img class="cta-bg" src="images/Villa/villa-04.png" alt="" loading="lazy">
   </div>
   <div class="cta-veil"></div>
   <div class="cta-glow"></div>
@@ -775,7 +775,7 @@ footer{padding:48px 7vw;border-top:1px solid var(--line2);display:grid;grid-temp
 <script>
 (function(){
 
-/* ── Preloader ── */
+/* â”€â”€ Preloader â”€â”€ */
 var pre=document.getElementById("pre");
 var loaded=false,elapsed=false;
 function maybeHide(){if(loaded&&elapsed){pre.classList.add("done");document.body.classList.add("ldd");startScramble();}}
@@ -783,17 +783,17 @@ window.addEventListener("load",function(){loaded=true;maybeHide();});
 setTimeout(function(){elapsed=true;maybeHide();},1900);
 setTimeout(function(){pre.classList.add("done");document.body.classList.add("ldd");},4500);
 
-/* ── Text scramble ── */
+/* â”€â”€ Text scramble â”€â”€ */
 function startScramble(){
   var el=document.getElementById("heroKicker");
   if(!el)return;
-  var chars="ABCDEFGHIJKLMNOPQRSTUVWXYZ·0123456789";
+  var chars="ABCDEFGHIJKLMNOPQRSTUVWXYZÂ·0123456789";
   var original=el.textContent;
   var frame=0;
   var interval=setInterval(function(){
     el.textContent=original.split("").map(function(c,i){
       if(i<Math.floor(frame/2.2))return c;
-      if(c===" "||c==="·"||c==="-")return c;
+      if(c===" "||c==="Â·"||c==="-")return c;
       return chars[Math.floor(Math.random()*chars.length)];
     }).join("");
     frame++;
@@ -801,7 +801,7 @@ function startScramble(){
   },38);
 }
 
-/* ── Lenis smooth scroll ── */
+/* â”€â”€ Lenis smooth scroll â”€â”€ */
 var lenis;
 if(typeof Lenis!=="undefined"){
   lenis=new Lenis({duration:1.18,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t));}});
@@ -819,7 +819,7 @@ if(typeof Lenis!=="undefined"){
   window.addEventListener("scroll",onScroll,{passive:true});
 }
 
-/* ── Fallback scroll handler ── */
+/* â”€â”€ Fallback scroll handler â”€â”€ */
 var pgbar=document.getElementById("pgbar");
 var hdr=document.getElementById("hdr");
 var heroBgW=document.getElementById("heroBgW");
@@ -840,7 +840,7 @@ function onScroll(){
 }
 if(typeof Lenis==="undefined")window.addEventListener("scroll",onScroll,{passive:true});
 
-/* ── Custom cursor ── */
+/* â”€â”€ Custom cursor â”€â”€ */
 var dot=document.getElementById("cDot"),ring=document.getElementById("cRing");
 if(dot&&ring&&window.matchMedia("(pointer:fine)").matches){
   var mx=0,my=0,rx=0,ry=0;
@@ -856,17 +856,17 @@ if(dot&&ring&&window.matchMedia("(pointer:fine)").matches){
   (function loop(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+"px";ring.style.top=ry+"px";requestAnimationFrame(loop);})();
 }
 
-/* ── Hero bg loaded ── */
+/* â”€â”€ Hero bg loaded â”€â”€ */
 var bg=document.getElementById("heroBg");
 if(bg){if(bg.complete)bg.classList.add("ldd");else bg.addEventListener("load",function(){bg.classList.add("ldd");});}
 
-/* ── Scroll reveal ── */
+/* â”€â”€ Scroll reveal â”€â”€ */
 var obs=new IntersectionObserver(function(entries){
   entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add("on");obs.unobserve(e.target);}});
 },{threshold:0.07,rootMargin:"0px 0px -36px 0px"});
 document.querySelectorAll("[data-r]").forEach(function(el){obs.observe(el);});
 
-/* ── Animated counters ── */
+/* â”€â”€ Animated counters â”€â”€ */
 function animCount(el,target,dur){
   var start=null;
   (function step(ts){
@@ -885,7 +885,7 @@ var cobs=new IntersectionObserver(function(entries){
 },{threshold:0.3});
 document.querySelectorAll("[data-count]").forEach(function(el){cobs.observe(el);});
 
-/* ── Magnetic buttons ── */
+/* â”€â”€ Magnetic buttons â”€â”€ */
 document.querySelectorAll(".btn").forEach(function(btn){
   btn.addEventListener("mousemove",function(e){
     var r=btn.getBoundingClientRect();
@@ -900,7 +900,7 @@ document.querySelectorAll(".btn").forEach(function(btn){
   });
 });
 
-/* ── Mobile menu ── */
+/* â”€â”€ Mobile menu â”€â”€ */
 var ham=document.getElementById("hamBtn");
 var mob=document.getElementById("mobNav");
 function toggleMob(){
@@ -919,7 +919,7 @@ document.querySelectorAll("[data-mob]").forEach(function(a){
   });
 });
 
-/* ── Drag scroll on villa gallery ── */
+/* â”€â”€ Drag scroll on villa gallery â”€â”€ */
 var hs=document.getElementById("hscroll");
 var hw=document.getElementById("hscrollW");
 if(hs&&hw){
@@ -929,7 +929,7 @@ if(hs&&hw){
   window.addEventListener("mouseup",function(){drag=false;hw.classList.remove("dragging");});
 }
 
-/* ── Gallery lightbox ── */
+/* â”€â”€ Gallery lightbox â”€â”€ */
 var lbox=document.getElementById("lb");
 var lbImg=document.getElementById("lbImg");
 var lbClose=document.getElementById("lbClose");
@@ -955,3 +955,4 @@ document.addEventListener("keydown",function(e){
 </script>
 </body>
 </html>
+
