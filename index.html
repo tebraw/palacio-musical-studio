@@ -929,8 +929,8 @@ if(hs&&hw){
   var drag=false,sx=0,sl=0,didDrag=false;
   hw.addEventListener("mousedown",function(e){drag=true;didDrag=false;sx=e.pageX-hw.offsetLeft;sl=hs.scrollLeft;hw.classList.add("dragging");});
   window.addEventListener("mousemove",function(e){if(!drag)return;e.preventDefault();var dx=e.pageX-hw.offsetLeft-sx;if(Math.abs(dx)>5)didDrag=true;hs.scrollLeft=sl-dx*1.5;},{passive:false});
-  window.addEventListener("mouseup",function(){drag=false;hw.classList.remove("dragging");setTimeout(function(){didDrag=false;},50);});
-  hs.addEventListener("click",function(e){if(didDrag)e.stopImmediatePropagation();},{capture:true});
+  window.addEventListener("mouseup",function(){drag=false;hw.classList.remove("dragging");});
+  hs.addEventListener("click",function(e){if(didDrag){e.stopImmediatePropagation();didDrag=false;}},{capture:true});
 }
 
 /* â”€â”€ Gallery lightbox â”€â”€ */
@@ -959,6 +959,7 @@ document.addEventListener("keydown",function(e){
 </script>
 </body>
 </html>
+
 
 
 
