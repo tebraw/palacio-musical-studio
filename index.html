@@ -276,6 +276,8 @@ body.ldd .scroll-cue{opacity:1}
 .hscroll-item img{height:520px;width:100%;object-fit:cover;transition:transform .9s var(--ease);pointer-events:none}
 .hscroll-item:hover img{transform:scale(1.04)}
 .hslabel{position:absolute;bottom:16px;left:18px;font-family:var(--sans);font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);padding:6px 12px;background:rgba(5,4,3,.76);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--line2)}
+.hscroll-item.gi{height:auto;cursor:pointer}
+.hscroll-item.gi .gi-ov{font-size:8px}
 
 /* â”€â”€ Equipment â”€â”€ */
 .eq-sec{background:var(--bg2)}
@@ -561,7 +563,7 @@ footer{padding:48px 7vw;border-top:1px solid var(--line2);display:grid;grid-temp
   </div>
   <div class="r-cards">
     <div class="rcard rcard-main" data-r>
-      <img src="images/Gear/gear-01.webp" alt="Guitars at Palacio Musical Studio">
+      <img src="images/Studio/studio-05.webp" alt="Creative songwriting session at Palacio Musical">
       <div class="rcard-ov"></div>
       <div class="rcard-body">
         <span class="rcard-tag">Live together</span>
@@ -571,7 +573,7 @@ footer{padding:48px 7vw;border-top:1px solid var(--line2);display:grid;grid-temp
     </div>
     <div class="r-col">
       <div class="rcard rcard-sub" data-r="1">
-        <img src="images/Gear/gear-02.webp" alt="DW drum kit at Palacio Musical">
+        <img src="images/Gear/gear-06.webp" alt="Full band session at Palacio Musical Studio">
         <div class="rcard-ov"></div>
         <div class="rcard-body">
           <span class="rcard-tag">Play together</span>
@@ -579,7 +581,7 @@ footer{padding:48px 7vw;border-top:1px solid var(--line2);display:grid;grid-temp
         </div>
       </div>
       <div class="rcard rcard-sub" data-r="2">
-        <img src="images/Gear/gear-03.webp" alt="Studio monitor at Palacio Musical">
+        <img src="images/Studio/studio-08.webp" alt="Detailed monitoring at Palacio Musical Studio">
         <div class="rcard-ov"></div>
         <div class="rcard-body">
           <span class="rcard-tag">Listen closely</span>
@@ -697,8 +699,6 @@ footer{padding:48px 7vw;border-top:1px solid var(--line2);display:grid;grid-temp
     <div class="gi" data-src="images/Gear/gear-06.webp" tabindex="0" role="button" aria-label="View drum kit photo">
       <img src="images/Gear/gear-06.webp" alt="DW drum kit"><div class="gi-ov">View</div>
     </div>
-    <div class="gi" data-src="images/Studio/studio-02.webp" tabindex="0" role="button" aria-label="View guitar staircase photo">
-      <img src="images/Studio/studio-02.webp" alt="Guitar staircase display"><div class="gi-ov">View</div>
     </div>
     <div class="gi" data-src="images/Studio/studio-03.webp" tabindex="0" role="button" aria-label="View microphone photo">
       <img src="images/Studio/studio-03.webp" alt="Studio microphone"><div class="gi-ov">View</div>
@@ -926,10 +926,11 @@ document.querySelectorAll("[data-mob]").forEach(function(a){
 var hs=document.getElementById("hscroll");
 var hw=document.getElementById("hscrollW");
 if(hs&&hw){
-  var drag=false,sx=0,sl=0;
-  hw.addEventListener("mousedown",function(e){drag=true;sx=e.pageX-hw.offsetLeft;sl=hs.scrollLeft;hw.classList.add("dragging");});
-  window.addEventListener("mousemove",function(e){if(!drag)return;e.preventDefault();hs.scrollLeft=sl-(e.pageX-hw.offsetLeft-sx)*1.5;},{passive:false});
-  window.addEventListener("mouseup",function(){drag=false;hw.classList.remove("dragging");});
+  var drag=false,sx=0,sl=0,didDrag=false;
+  hw.addEventListener("mousedown",function(e){drag=true;didDrag=false;sx=e.pageX-hw.offsetLeft;sl=hs.scrollLeft;hw.classList.add("dragging");});
+  window.addEventListener("mousemove",function(e){if(!drag)return;e.preventDefault();var dx=e.pageX-hw.offsetLeft-sx;if(Math.abs(dx)>5)didDrag=true;hs.scrollLeft=sl-dx*1.5;},{passive:false});
+  window.addEventListener("mouseup",function(){drag=false;hw.classList.remove("dragging");setTimeout(function(){didDrag=false;},50);});
+  hs.addEventListener("click",function(e){if(didDrag)e.stopImmediatePropagation();},{capture:true});
 }
 
 /* â”€â”€ Gallery lightbox â”€â”€ */
@@ -958,5 +959,8 @@ document.addEventListener("keydown",function(e){
 </script>
 </body>
 </html>
+
+
+
 
 
