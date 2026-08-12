@@ -926,11 +926,10 @@ document.querySelectorAll("[data-mob]").forEach(function(a){
 var hs=document.getElementById("hscroll");
 var hw=document.getElementById("hscrollW");
 if(hs&&hw){
-  var drag=false,sx=0,sl=0,didDrag=false;
-  hw.addEventListener("mousedown",function(e){drag=true;didDrag=false;sx=e.pageX-hw.offsetLeft;sl=hs.scrollLeft;hw.classList.add("dragging");});
-  window.addEventListener("mousemove",function(e){if(!drag)return;e.preventDefault();var dx=e.pageX-hw.offsetLeft-sx;if(Math.abs(dx)>5)didDrag=true;hs.scrollLeft=sl-dx*1.5;},{passive:false});
+  var drag=false,sx=0,sl=0,downX=0;
+  hw.addEventListener("mousedown",function(e){drag=true;sx=e.pageX-hw.offsetLeft;sl=hs.scrollLeft;downX=e.clientX;hw.classList.add("dragging");});
+  window.addEventListener("mousemove",function(e){if(!drag)return;e.preventDefault();hs.scrollLeft=sl-(e.pageX-hw.offsetLeft-sx)*1.5;},{passive:false});
   window.addEventListener("mouseup",function(){drag=false;hw.classList.remove("dragging");});
-  hs.addEventListener("click",function(e){if(didDrag){e.stopImmediatePropagation();didDrag=false;}},{capture:true});
 }
 
 /* â”€â”€ Gallery lightbox â”€â”€ */
@@ -943,7 +942,12 @@ var gis=Array.from(document.querySelectorAll(".gi[data-src]"));
 var cur=0;
 function lbOpen(i){cur=i;lbImg.src=gis[i].dataset.src;lbImg.alt=gis[i].querySelector("img").alt;lbox.classList.add("open");lbox.removeAttribute("aria-hidden");document.body.style.overflow="hidden";}
 function lbCloseF(){lbox.classList.remove("open");lbox.setAttribute("aria-hidden","true");document.body.style.overflow="";}
-gis.forEach(function(g,i){g.addEventListener("click",function(){lbOpen(i);});g.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" ")lbOpen(i);});});
+var pdownX=0;
+gis.forEach(function(g,i){
+  g.addEventListener("pointerdown",function(e){pdownX=e.clientX;});
+  g.addEventListener("click",function(e){if(Math.abs(e.clientX-pdownX)>8)return;lbOpen(i);});
+  g.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" ")lbOpen(i);});
+});
 lbClose.addEventListener("click",lbCloseF);
 lbNext.addEventListener("click",function(){lbOpen((cur+1)%gis.length);});
 lbPrev.addEventListener("click",function(){lbOpen((cur-1+gis.length)%gis.length);});
@@ -959,6 +963,9 @@ document.addEventListener("keydown",function(e){
 </script>
 </body>
 </html>
+
+
+
 
 
 
