@@ -159,6 +159,8 @@ section{padding:140px 7vw}
 .hero-bg-w{position:absolute;inset:0;overflow:hidden}
 .hero-bg{width:100%;height:100%;object-fit:cover;transform:scale(1.09);transition:transform 20s var(--ease)}
 .hero-bg.ldd{transform:scale(1.02)}
+.hero-video{position:absolute;top:0;left:0;opacity:0;object-position:50% 62%;transition:opacity 1.6s ease,transform 20s var(--ease);pointer-events:none}
+.hero-video.is-visible{opacity:1}
 .hero-veil{position:absolute;inset:0;background:linear-gradient(0deg,rgba(5,4,3,.97) 0%,rgba(5,4,3,.62) 36%,rgba(5,4,3,.2) 68%,rgba(5,4,3,.06) 100%),linear-gradient(90deg,rgba(5,4,3,.58) 0%,transparent 62%);z-index:1}
 .film-bar{position:absolute;left:0;right:0;z-index:3;display:flex;align-items:center;justify-content:space-between;padding:0 7vw;font-family:var(--sans);font-size:7.5px;letter-spacing:.3em;text-transform:uppercase;color:rgba(242,204,122,.36);opacity:0;transition:opacity .9s .5s}
 body.ldd .film-bar{opacity:1}
@@ -544,6 +546,9 @@ footer{padding:48px 7vw;border-top:1px solid var(--line2);display:grid;grid-temp
 <section class="hero">
   <div class="hero-bg-w" id="heroBgW">
     <img class="hero-bg" id="heroBg" src="images/Studio/studio-01.webp" alt="Palacio Musical beachfront villa at night, Tambor Costa Rica" loading="eager">
+    <video class="hero-bg hero-video" id="heroVideo" muted loop playsinline preload="none" poster="images/hero-poster.webp" aria-hidden="true">
+      <source data-src="video/hero-drone.mp4" type="video/mp4">
+    </video>
   </div>
   <div class="hero-veil"></div>
   <div class="film-bar film-bar-top" aria-hidden="true">
@@ -1073,6 +1078,41 @@ if(dot&&ring&&window.matchMedia("(pointer:fine)").matches){
 /* â”€â”€ Hero bg loaded â”€â”€ */
 var bg=document.getElementById("heroBg");
 if(bg){if(bg.complete)bg.classList.add("ldd");else bg.addEventListener("load",function(){bg.classList.add("ldd");});}
+
+/* â”€â”€ Hero drone video (beach to villa reveal) â”€â”€ */
+var heroVideo=document.getElementById("heroVideo");
+if(heroVideo){
+  var reduceMotion=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var saveData=navigator.connection&&navigator.connection.saveData;
+  if(reduceMotion||saveData){
+    heroVideo.remove();
+  }else{
+    heroVideo.muted=true;
+    heroVideo.playsInline=true;
+    heroVideo.addEventListener("playing",function(){heroVideo.classList.add("is-visible","ldd");});
+    var hvStart=function(){
+      var src=heroVideo.querySelector("source");
+      if(src&&!src.getAttribute("src")){src.setAttribute("src",src.getAttribute("data-src"));heroVideo.load();}
+      var p=heroVideo.play();
+      if(p&&p.catch)p.catch(function(){});
+    };
+    if("IntersectionObserver" in window){
+      var heroSection=document.querySelector(".hero");
+      var hvObs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)hvStart();else heroVideo.pause();
+        });
+      },{threshold:0.25});
+      if(heroSection)hvObs.observe(heroSection);
+    }else{
+      hvStart();
+    }
+    document.addEventListener("visibilitychange",function(){
+      if(document.hidden)heroVideo.pause();
+      else if(heroVideo.querySelector("source[src]"))hvStart();
+    });
+  }
+}
 
 /* â”€â”€ Scroll reveal â”€â”€ */
 var obs=new IntersectionObserver(function(entries){
