@@ -228,6 +228,18 @@ body.ldd .scroll-cue{opacity:1}
 .studio-r:hover .studio-r-bg img{transform:scale(1.045)}
 .studio-r-veil{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(5,4,3,.04) 0%,rgba(5,4,3,.2) 55%,rgba(5,4,3,.62) 100%),linear-gradient(90deg,rgba(5,4,3,.42) 0%,transparent 48%)}
 
+/* Location pin + connector thread -> shows exactly where the studio sits inside the villa */
+.studio-link{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.studio-link path{fill:none;stroke:var(--gold3);stroke-width:1.1;stroke-dasharray:1 6;stroke-linecap:round;opacity:.58;vector-effect:non-scaling-stroke;animation:studioLinkFlow 3.6s linear infinite}
+@keyframes studioLinkFlow{to{stroke-dashoffset:-28}}
+.lk-m{display:none}
+.studio-pin{position:absolute;left:21%;top:32%;z-index:2;display:flex;align-items:center;gap:10px;transform:translate(-50%,-50%)}
+.studio-pin-marker{position:relative;width:9px;height:9px;flex-shrink:0}
+.studio-pin-dot{position:absolute;inset:0;border-radius:50%;background:var(--gold3);box-shadow:0 0 0 4px rgba(5,4,3,.4),0 0 16px rgba(242,204,122,.85)}
+.studio-pin-ring{position:absolute;inset:0;border-radius:50%;border:1px solid var(--gold3);animation:studioPinPulse 2.4s ease-out infinite}
+@keyframes studioPinPulse{0%{transform:scale(1);opacity:.8}100%{transform:scale(4.8);opacity:0}}
+.studio-pin-label{font-family:var(--sans);font-weight:400;font-size:8.5px;text-transform:uppercase;letter-spacing:.2em;color:var(--ink);white-space:nowrap;background:rgba(5,4,3,.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:7px 13px 7px 7px;border:1px solid rgba(242,204,122,.26);border-radius:100px}
+
 /* Floating studio card -> links through to #retreat */
 .studio-card{position:absolute;z-index:2;top:50%;right:8%;transform:translateY(-50%);width:min(320px,42%);aspect-ratio:4/5;display:block}
 .studio-card-glow{position:absolute;inset:-16%;z-index:0;border-radius:6px;pointer-events:none;background:radial-gradient(circle at 50% 50%,rgba(242,204,122,.4),transparent 68%);filter:blur(32px);opacity:.32;animation:cardGlow 5.5s ease-in-out infinite;transition:opacity .6s var(--ease-out)}
@@ -501,6 +513,10 @@ footer{padding:48px 7vw;border-top:1px solid var(--line2);display:grid;grid-temp
   .rcard-main{height:260px}
   .rcard-sub{height:190px}
   .studio-card{width:min(70vw,235px);right:5%}
+  .studio-pin{left:14%;top:29%}
+  .studio-pin-label{font-size:7.5px;padding:6px 10px 6px 5px;letter-spacing:.16em}
+  .lk-d{display:none}
+  .lk-m{display:block}
   .hero-btns .btn{padding:13px 22px}
 }</style>
 </head>
@@ -666,6 +682,14 @@ footer{padding:48px 7vw;border-top:1px solid var(--line2);display:grid;grid-temp
         <img src="images/Villa/villa-12.webp" alt="Aerial sunset view of Palacio Musical villa directly on the beach, Tambor Costa Rica" loading="lazy">
       </div>
       <div class="studio-r-veil" aria-hidden="true"></div>
+      <svg class="studio-link" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <path class="lk-d" d="M21 32 C 30 37, 38 43, 45 46"/>
+        <path class="lk-m" d="M15 30 C 25 36, 34 42, 44 46"/>
+      </svg>
+      <div class="studio-pin">
+        <span class="studio-pin-marker" aria-hidden="true"><span class="studio-pin-ring"></span><span class="studio-pin-dot"></span></span>
+        <span class="studio-pin-label">Recording Studio</span>
+      </div>
       <a href="#retreat" class="studio-card" aria-label="Explore The Retreat — see the full estate experience">
         <div class="studio-card-glow" aria-hidden="true"></div>
         <div class="studio-card-inner">
