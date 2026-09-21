@@ -222,9 +222,33 @@ body.ldd .scroll-cue{opacity:1}
 .ss:hover .ss-n{color:var(--gold)}
 .ss-suf{font-family:var(--sans);font-size:10px;letter-spacing:.1em;color:var(--gold);margin-right:4px}
 .ss-l{font-family:var(--sans);font-size:8.5px;text-transform:uppercase;letter-spacing:.24em;color:var(--muted)}
-.studio-r{position:relative;overflow:hidden}
-.studio-r img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease)}
-.studio-r:hover img{transform:scale(1.04)}
+.studio-r{position:relative;overflow:hidden;background:var(--bg)}
+.studio-r-bg{position:absolute;inset:0}
+.studio-r-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 2.2s var(--ease)}
+.studio-r:hover .studio-r-bg img{transform:scale(1.045)}
+.studio-r-veil{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(5,4,3,.04) 0%,rgba(5,4,3,.2) 55%,rgba(5,4,3,.62) 100%),linear-gradient(90deg,rgba(5,4,3,.42) 0%,transparent 48%)}
+
+/* Floating studio card -> links through to #retreat */
+.studio-card{position:absolute;z-index:2;top:50%;right:8%;transform:translateY(-50%);width:min(320px,42%);aspect-ratio:4/5;display:block}
+.studio-card-glow{position:absolute;inset:-16%;z-index:0;border-radius:6px;pointer-events:none;background:radial-gradient(circle at 50% 50%,rgba(242,204,122,.4),transparent 68%);filter:blur(32px);opacity:.32;animation:cardGlow 5.5s ease-in-out infinite;transition:opacity .6s var(--ease-out)}
+.studio-card:hover .studio-card-glow{opacity:.62;animation-play-state:paused}
+@keyframes cardGlow{0%,100%{opacity:.28;transform:scale(1)}50%{opacity:.48;transform:scale(1.05)}}
+.studio-card-inner{position:relative;z-index:1;width:100%;height:100%;overflow:hidden;background:var(--surface2);border:1px solid rgba(242,204,122,.24);box-shadow:0 36px 80px -24px rgba(0,0,0,.72);transform:rotate(-1.1deg);transition:transform .8s var(--ease-spring),box-shadow .6s var(--ease-out),border-color .5s var(--ease-out)}
+.studio-card:hover .studio-card-inner{transform:rotate(0deg) translateY(-10px);border-color:rgba(242,204,122,.65);box-shadow:0 54px 110px -22px rgba(0,0,0,.8),0 0 0 1px rgba(196,146,46,.22)}
+.studio-card-img{position:absolute;inset:0}
+.studio-card-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease)}
+.studio-card:hover .studio-card-img img{transform:scale(1.09)}
+.studio-card-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,4,3,.06) 0%,rgba(5,4,3,.24) 44%,rgba(5,4,3,.95) 100%)}
+.studio-card-body{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:22px 24px 26px}
+.studio-card-tag{display:block;font-family:var(--sans);font-weight:400;font-size:8px;text-transform:uppercase;letter-spacing:.36em;color:var(--gold);margin-bottom:12px;opacity:.85}
+.studio-card-brand{display:block;font-family:var(--serif);font-weight:500;font-size:20px;letter-spacing:.01em;line-height:1.16;color:var(--ink)}
+.studio-card-brand em{display:block;font-style:normal;font-family:var(--sans);font-weight:300;font-size:8px;letter-spacing:.5em;text-transform:uppercase;color:var(--gold2);margin-top:8px}
+.studio-card-rule{display:block;width:100%;height:1px;background:rgba(242,204,122,.22);margin:17px 0 14px;transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease-out) .05s}
+.studio-card:hover .studio-card-rule{transform:scaleX(1)}
+.studio-card-cta{display:flex;align-items:center;gap:8px;font-family:var(--sans);font-weight:400;font-size:9.5px;text-transform:uppercase;letter-spacing:.2em;color:rgba(240,228,208,.72);transition:color .4s}
+.studio-card:hover .studio-card-cta{color:var(--gold3)}
+.studio-card-cta svg{flex-shrink:0;transition:transform .55s var(--ease-spring)}
+.studio-card:hover .studio-card-cta svg{transform:translateX(6px)}
 
 /* â”€â”€ Manifesto â”€â”€ */
 .manifesto{padding:90px 7vw;border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);position:relative;overflow:hidden}
@@ -393,7 +417,8 @@ footer{padding:48px 7vw;border-top:1px solid var(--line2);display:grid;grid-temp
   .hw:nth-child(2),.hw:nth-child(4){padding-left:0}
   .studio-g{display:block}
   .studio-l{padding:86px 24px 60px}
-  .studio-r{height:60vw;min-height:320px}
+  .studio-r{height:82vw;min-height:400px}
+  .studio-card{width:min(68vw,280px);right:6%}
   .sec-deco{font-size:clamp(90px,20vw,160px)}
   .manifesto{padding:60px 24px}
   .mf-text{font-size:clamp(18px,4.5vw,26px)}
@@ -439,6 +464,8 @@ footer{padding:48px 7vw;border-top:1px solid var(--line2);display:grid;grid-temp
   .mf-mark{font-size:60px}
   .rcard-main{height:300px}
   .rcard-sub{height:220px}
+  .studio-card-body{padding:18px 18px 20px}
+  .studio-card-brand{font-size:17px}
   .rcard-body{left:20px;bottom:20px}
   .quote-sec{padding:64px 20px}
   .q-rule{margin-bottom:24px}
@@ -473,6 +500,7 @@ footer{padding:48px 7vw;border-top:1px solid var(--line2);display:grid;grid-temp
   .gi{height:220px}
   .rcard-main{height:260px}
   .rcard-sub{height:190px}
+  .studio-card{width:min(70vw,235px);right:5%}
   .hero-btns .btn{padding:13px 22px}
 }</style>
 </head>
@@ -633,8 +661,26 @@ footer{padding:48px 7vw;border-top:1px solid var(--line2);display:grid;grid-temp
         <div class="ss"><span class="ss-n" data-count="12500">0</span><span class="ss-suf">&nbsp;sq&nbsp;ft</span><span class="ss-l">Beachfront villa</span></div>
       </div>
     </div>
-    <div class="studio-r">
-      <img src="images/Villa/villa-12.webp" alt="Aerial sunset view of Palacio Musical villa directly on the beach, Tambor Costa Rica" loading="lazy">
+    <div class="studio-r" data-r="fade">
+      <div class="studio-r-bg">
+        <img src="images/Villa/villa-12.webp" alt="Aerial sunset view of Palacio Musical villa directly on the beach, Tambor Costa Rica" loading="lazy">
+      </div>
+      <div class="studio-r-veil" aria-hidden="true"></div>
+      <a href="#retreat" class="studio-card" aria-label="Explore The Retreat — see the full estate experience">
+        <div class="studio-card-glow" aria-hidden="true"></div>
+        <div class="studio-card-inner">
+          <div class="studio-card-img">
+            <img src="images/Studio/studio-06.webp" alt="Inside Palacio Musical Studio control room" loading="lazy">
+            <div class="studio-card-ov" aria-hidden="true"></div>
+          </div>
+          <div class="studio-card-body">
+            <span class="studio-card-tag">Inside The Studio</span>
+            <span class="studio-card-brand">Palacio Musical<em>Studio</em></span>
+            <span class="studio-card-rule" aria-hidden="true"></span>
+            <span class="studio-card-cta"><span>Explore The Retreat</span><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </div>
+      </a>
     </div>
   </div>
 </section>
